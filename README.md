@@ -17,7 +17,7 @@ Es un proyecto de portafolio personal. La empresa tuvo un sitio web anterior que
 - **SEO**: etiquetas `hreflang`, canónicas, Open Graph, `sitemap.xml`, `robots.txt` y datos estructurados de `RealEstateAgent`.
 - **Accesibilidad**: enlace para saltar al contenido, foco visible, navegación completa por teclado, contrastes WCAG AA y respeto de "reducir movimiento".
 
-| Español | Inglés |
+| Inglés | Inglés |
 |---|---|
 | ![Portada en inglés](docs/capturas/portada-en.jpg) | ![Página de Florida en inglés](docs/capturas/florida-en.jpg) |
 

@@ -1,0 +1,213 @@
+@import "tailwindcss";
+
+/*
+ * Sistema de diseño de Algi Property.
+ * Derivado del logo: serif de alto contraste en marrón topo sobre fondo claro.
+ * Contrastes verificados (WCAG): ink/paper 14.3, taupe/paper 6.0, brass-deep/paper 5.7, brass-deep/paper-2 5.2,
+ * cream/night 15.4, brass-light/night 8.6, mist/night 8.5.
+ * Regla: `brass` (3.2:1 sobre papel) solo para detalles y texto grande; el texto
+ * pequeño sobre claro usa `brass-deep`, y sobre oscuro usa `brass-light`.
+ */
+@theme {
+  /* Superficies claras */
+  --color-paper: #f7f5f2;
+  --color-paper-2: #efebe6;
+  --color-line: #d9d2cb;
+  /* Tinta */
+  --color-ink: #2a2220;
+  --color-taupe: #6b5a55;
+  /* Latón (acento) */
+  --color-brass: #a98254;
+  --color-brass-deep: #7a5c34;
+  --color-brass-light: #d2ae7c;
+  /* Superficies oscuras */
+  --color-pine: #1d3532;
+  --color-night: #0e1a18;
+  --color-cream: #f3eee6;
+  --color-mist: #b9b2a6;
+
+  /* Escala tipográfica */
+  --text-eyebrow: 0.6875rem;
+  --text-body: 0.9375rem;
+  --text-lead: 1.125rem;
+  --text-title: clamp(2rem, 1.4rem + 2.4vw, 3.25rem);
+  --text-headline: clamp(2.75rem, 1.5rem + 5vw, 6rem);
+  --text-display: clamp(3rem, 0.5rem + 11vw, 9.5rem);
+
+  /* Movimiento */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out-expo: cubic-bezier(0.87, 0, 0.13, 1);
+}
+
+@theme inline {
+  --font-display: var(--font-cormorant), Georgia, "Times New Roman", serif;
+  --font-sans: var(--font-montserrat), system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+html {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  scroll-behavior: auto; /* Lenis gestiona el desplazamiento suave */
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  font-size: var(--text-body);
+  line-height: 1.65;
+  font-weight: 400;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+a,
+button,
+summary,
+select,
+label {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: color-mix(in srgb, var(--color-brass) 25%, transparent);
+}
+
+::selection {
+  background: var(--color-brass-light);
+  color: var(--color-night);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-brass-deep);
+  outline-offset: 3px;
+}
+.on-dark :focus-visible,
+[data-surface="dark"] :focus-visible {
+  outline-color: var(--color-brass-light);
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  text-wrap: balance;
+}
+
+/* Utilidades de marca */
+.eyebrow {
+  font-family: var(--font-sans);
+  font-size: var(--text-eyebrow);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.tabular {
+  font-variant-numeric: lining-nums tabular-nums;
+}
+
+/* Salto al contenido (accesibilidad por teclado) */
+.skip-link {
+  position: fixed;
+  left: 16px;
+  top: -60px;
+  z-index: 100;
+  background: var(--color-ink);
+  color: var(--color-paper);
+  padding: 10px 16px;
+  transition: top 0.2s var(--ease-out-expo);
+}
+.skip-link:focus {
+  top: 16px;
+}
+
+/* Movimiento de portada: titulares que suben desde una máscara y zoom lento de la foto. */
+@keyframes rise {
+  from {
+    transform: translateY(105%);
+  }
+  to {
+    transform: none;
+  }
+}
+@keyframes slow-zoom {
+  from {
+    transform: scale(1.14);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+/* Entrada ligada al scroll: sin JavaScript y visible por defecto si el navegador no la soporta. */
+@keyframes reveal-in {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@supports (animation-timeline: view()) {
+  .reveal {
+    animation: reveal-in linear both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 40%;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    animation: none;
+  }
+}
+.rise-mask {
+  display: block;
+  overflow: hidden;
+}
+.rise {
+  display: block;
+  animation: rise 1.25s var(--ease-out-expo) both;
+}
+.slow-zoom {
+  animation: slow-zoom 16s var(--ease-out-expo) both;
+}
+.fade-up {
+  animation: fade-up 1s var(--ease-out-expo) both;
+}
+.marquee-track {
+  display: inline-flex;
+  animation: marquee 40s linear infinite;
+}
+/* Pausa del movimiento automático al apuntar (WCAG 2.2.2). */
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+dialog {
+  overscroll-behavior: contain;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}

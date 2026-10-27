@@ -1,0 +1,144 @@
+{
+  "meta": {
+    "titulo": "ALGI Property | Real estate consulting in Cali and Florida",
+    "descripcion": "Financial, legal and tax advisory to buy, sell and invest in real estate in Cali, Colombia and in Florida, USA."
+  },
+  "comun": {
+    "saltar": "Skip to content",
+    "hablemos": "Let’s talk",
+    "whatsappMensaje": "Hello, I would like information about ALGI Property’s services.",
+    "cambiarIdioma": "Change language",
+    "idiomaActual": "English",
+    "abrirMenu": "Open menu",
+    "cerrarMenu": "Close menu",
+    "navegacionPrincipal": "Main navigation"
+  },
+  "nav": {
+    "nosotros": "About",
+    "servicios": "Services",
+    "inversiones": "Investments",
+    "florida": "Florida",
+    "propiedades": "Properties",
+    "contacto": "Contact"
+  },
+  "hero": {
+    "linea1": "Your success,",
+    "linea2": "our goal.",
+    "descripcion": "Financial, legal and tax advisory to buy, sell and invest in Cali and in Florida.",
+    "explorar": "Explore properties",
+    "bajar": "Scroll"
+  },
+  "cinta": [
+    "Financial advisory",
+    "Legal advisory",
+    "Tax advisory",
+    "Florida investing",
+    "Short-term rentals",
+    "Pre-sales",
+    "Financing",
+    "Insurance"
+  ],
+  "destacados": {
+    "titulo": "Available properties",
+    "descripcion": "A selection from our portfolio in Cali and Yumbo.",
+    "verFicha": "View details",
+    "verTodas": "View all properties",
+    "ilustrativa": "Illustrative image",
+    "consultar": "Price on request",
+    "tipos": {
+      "industrial": "Industrial",
+      "residencial": "Residential",
+      "edificio": "Building"
+    },
+    "operaciones": {
+      "alquiler": "For rent",
+      "venta": "For sale"
+    }
+  },
+  "pie": {
+    "lema": "Your success, our goal",
+    "descripcion": "Real estate consulting with 24/7 support in Cali, Colombia and Florida, USA.",
+    "navegar": "Browse",
+    "contacto": "Contact",
+    "derechos": "All rights reserved.",
+    "proyecto": "Site built as a portfolio project using ALGI Property content.",
+    "fotos": "Photos"
+  },
+  "cta": {
+    "titulo": "Let’s talk about your next",
+    "tituloCursiva": "investment.",
+    "texto": "Tell us what you’re looking for and an ALGI advisor will reply, at any hour.",
+    "whatsapp": "Message us on WhatsApp"
+  },
+  "catalogo": {
+    "titulo": "Available",
+    "tituloCursiva": "properties.",
+    "lead": "Houses, warehouses and buildings in Cali and Yumbo, with a data sheet and photos for each property.",
+    "operacion": "Filter by operation",
+    "tipo": "Filter by type",
+    "todas": "All",
+    "todos": "All",
+    "resultados": "{n, plural, =0 {No results} one {# property} other {# properties}}",
+    "vacioTitulo": "No properties match those filters.",
+    "vacioTexto": "Try another combination or write to us: we have options that aren’t listed.",
+    "limpiar": "Clear filters",
+    "resultadosTitulo": "Results"
+  },
+  "ficha": {
+    "volver": "Back to properties",
+    "caracteristicas": "Features",
+    "datos": "Key facts",
+    "consultar": "Enquire on WhatsApp",
+    "otras": "Other properties",
+    "miniaturas": "Property photos",
+    "fotoN": "Photo {n} of {total}",
+    "ampliar": "Enlarge photo",
+    "cerrar": "Close",
+    "anterior": "Previous",
+    "siguiente": "Next",
+    "ilustrativa": "Illustrative image",
+    "mensajeWhatsApp": "Hello, I’m interested in {nombre} and would like more information."
+  },
+  "contacto": {
+    "titulo": "Let’s talk",
+    "tituloCursiva": "whenever you like.",
+    "lead": "24/7 support. Tell us if you want to buy, sell, rent or invest in Cali or in Florida.",
+    "correo": "Email",
+    "donde": "Where we are",
+    "disponibilidad": "24/7 support, whatever the hour or place.",
+    "formTitulo": "Write to us",
+    "form": {
+      "nombre": "Name",
+      "correo": "Email (optional)",
+      "interes": "I’m interested in",
+      "interesPlaceholder": "Select an option",
+      "mensaje": "Message",
+      "errorNombre": "Enter your name so we can reply.",
+      "errorMensaje": "Briefly tell us how we can help.",
+      "enviarWhatsApp": "Send via WhatsApp",
+      "enviarCorreo": "Send by email",
+      "ayuda": "Sending opens WhatsApp or your email app with the message already written. Nothing is stored on this site.",
+      "asunto": "Enquiry from the ALGI Property website",
+      "saludo": "Hello, I’m {nombre}.",
+      "lineaInteres": "I’m interested in: {interes}.",
+      "lineaCorreo": "My email: {correo}",
+      "intereses": {
+        "comprar": "Buying a property",
+        "vender": "Selling a property",
+        "alquilar": "Renting or letting",
+        "invertirCali": "Investing in Cali",
+        "invertirFlorida": "Investing in Florida",
+        "asesoria": "Financial, legal or tax advice",
+        "otro": "Something else"
+      }
+    }
+  },
+  "extra": {
+    "inversionFlorida": "Investing in Florida"
+  },
+  "noEncontrado": {
+    "titulo": "This page doesn’t exist",
+    "texto": "The link may be out of date or the property may no longer be listed.",
+    "volver": "Back to home"
+  }
+}

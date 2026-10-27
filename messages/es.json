@@ -1,0 +1,144 @@
+{
+  "meta": {
+    "titulo": "ALGI Property | Consultoría inmobiliaria en Cali y Florida",
+    "descripcion": "Asesoría financiera, legal y tributaria para comprar, vender e invertir en bienes raíces en Cali, Colombia y en la Florida, EE. UU."
+  },
+  "comun": {
+    "saltar": "Saltar al contenido",
+    "hablemos": "Hablemos",
+    "whatsappMensaje": "Hola, quisiera información sobre los servicios de ALGI Property.",
+    "cambiarIdioma": "Cambiar idioma",
+    "idiomaActual": "Español",
+    "abrirMenu": "Abrir menú",
+    "cerrarMenu": "Cerrar menú",
+    "navegacionPrincipal": "Navegación principal"
+  },
+  "nav": {
+    "nosotros": "Nosotros",
+    "servicios": "Servicios",
+    "inversiones": "Inversiones",
+    "florida": "Florida",
+    "propiedades": "Propiedades",
+    "contacto": "Contacto"
+  },
+  "hero": {
+    "linea1": "Tu éxito,",
+    "linea2": "nuestra meta.",
+    "descripcion": "Asesoría financiera, legal y tributaria para comprar, vender e invertir en Cali y en la Florida.",
+    "explorar": "Explorar propiedades",
+    "bajar": "Desplázate"
+  },
+  "cinta": [
+    "Asesoría financiera",
+    "Asesoría legal",
+    "Asesoría tributaria",
+    "Inversión en Florida",
+    "Rentas cortas",
+    "Preventa",
+    "Financiamiento",
+    "Seguros"
+  ],
+  "destacados": {
+    "titulo": "Inmuebles disponibles",
+    "descripcion": "Una selección de nuestro portafolio en Cali y Yumbo.",
+    "verFicha": "Ver ficha",
+    "verTodas": "Ver todas las propiedades",
+    "ilustrativa": "Imagen ilustrativa",
+    "consultar": "Precio bajo consulta",
+    "tipos": {
+      "industrial": "Industrial",
+      "residencial": "Residencial",
+      "edificio": "Edificio"
+    },
+    "operaciones": {
+      "alquiler": "Alquiler",
+      "venta": "Venta"
+    }
+  },
+  "pie": {
+    "lema": "Tu éxito nuestra meta",
+    "descripcion": "Consultoría inmobiliaria con atención 24/7 en Cali, Colombia y la Florida, EE. UU.",
+    "navegar": "Navegar",
+    "contacto": "Contacto",
+    "derechos": "Todos los derechos reservados.",
+    "proyecto": "Sitio creado como proyecto de portafolio con contenido de ALGI Property.",
+    "fotos": "Fotos"
+  },
+  "cta": {
+    "titulo": "Hablemos de tu próxima",
+    "tituloCursiva": "inversión.",
+    "texto": "Cuéntanos qué buscas y un asesor de ALGI te responde, a cualquier hora.",
+    "whatsapp": "Escribir por WhatsApp"
+  },
+  "catalogo": {
+    "titulo": "Propiedades",
+    "tituloCursiva": "disponibles.",
+    "lead": "Casas, bodegas y edificios en Cali y Yumbo, con ficha técnica y fotos de cada inmueble.",
+    "operacion": "Filtrar por operación",
+    "tipo": "Filtrar por tipo",
+    "todas": "Todas",
+    "todos": "Todos",
+    "resultados": "{n, plural, =0 {Sin resultados} one {# propiedad} other {# propiedades}}",
+    "vacioTitulo": "No hay propiedades con esos filtros.",
+    "vacioTexto": "Prueba con otra combinación o escríbenos: tenemos opciones que no están publicadas.",
+    "limpiar": "Quitar filtros",
+    "resultadosTitulo": "Resultados"
+  },
+  "ficha": {
+    "volver": "Volver a propiedades",
+    "caracteristicas": "Características",
+    "datos": "Datos clave",
+    "consultar": "Consultar por WhatsApp",
+    "otras": "Otras propiedades",
+    "miniaturas": "Fotos del inmueble",
+    "fotoN": "Foto {n} de {total}",
+    "ampliar": "Ampliar foto",
+    "cerrar": "Cerrar",
+    "anterior": "Anterior",
+    "siguiente": "Siguiente",
+    "ilustrativa": "Imagen ilustrativa",
+    "mensajeWhatsApp": "Hola, me interesa {nombre} y quisiera recibir más información."
+  },
+  "contacto": {
+    "titulo": "Hablemos",
+    "tituloCursiva": "cuando quieras.",
+    "lead": "Atención 24/7. Cuéntanos si quieres comprar, vender, alquilar o invertir en Cali o en la Florida.",
+    "correo": "Correo",
+    "donde": "Dónde estamos",
+    "disponibilidad": "Atención 24/7, sin importar la hora o el lugar.",
+    "formTitulo": "Escríbenos",
+    "form": {
+      "nombre": "Nombre",
+      "correo": "Correo (opcional)",
+      "interes": "Me interesa",
+      "interesPlaceholder": "Selecciona una opción",
+      "mensaje": "Mensaje",
+      "errorNombre": "Escribe tu nombre para poder responderte.",
+      "errorMensaje": "Cuéntanos brevemente en qué podemos ayudarte.",
+      "enviarWhatsApp": "Enviar por WhatsApp",
+      "enviarCorreo": "Enviar por correo",
+      "ayuda": "Al enviar se abre WhatsApp o tu app de correo con el mensaje ya redactado. Nada se guarda en este sitio.",
+      "asunto": "Consulta desde el sitio web de ALGI Property",
+      "saludo": "Hola, soy {nombre}.",
+      "lineaInteres": "Me interesa: {interes}.",
+      "lineaCorreo": "Mi correo: {correo}",
+      "intereses": {
+        "comprar": "Comprar una propiedad",
+        "vender": "Vender una propiedad",
+        "alquilar": "Alquilar o dar en alquiler",
+        "invertirCali": "Invertir en Cali",
+        "invertirFlorida": "Invertir en la Florida",
+        "asesoria": "Asesoría financiera, legal o tributaria",
+        "otro": "Otro tema"
+      }
+    }
+  },
+  "extra": {
+    "inversionFlorida": "Inversión en la Florida"
+  },
+  "noEncontrado": {
+    "titulo": "Esta página no existe",
+    "texto": "El enlace puede estar desactualizado o la propiedad ya no está publicada.",
+    "volver": "Volver al inicio"
+  }
+}

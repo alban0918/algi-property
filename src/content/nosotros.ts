@@ -51,8 +51,8 @@ export const nosotros = {
   ciudad: {
     titulo: tx("Desde Cali, hacia el mundo.", "From Cali, to the world."),
     texto: tx(
-      "Nuestra base está en Santiago de Cali, y nuestra red de aliados llega hasta la Florida, para acompañarte en inversiones locales e internacionales.",
-      "We are based in Santiago de Cali, and our network of partners reaches Florida, so we can support you in local and international investments.",
+      "Nuestra base está en Santiago de Cali, y nuestra red de aliados llega hasta el sur de la Florida EE. UU. para acompañarte en inversiones locales e internacionales.",
+      "We are based in Santiago de Cali, and our network of partners reaches South Florida, USA, so we can support you in local and international investments.",
     ),
   },
 };

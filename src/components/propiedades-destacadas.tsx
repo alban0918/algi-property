@@ -20,7 +20,7 @@ export async function PropiedadesDestacadas({ locale }: { locale: Idioma }) {
         </div>
 
         <ul className="mt-14 grid gap-x-8 gap-y-14 md:grid-cols-3">
-          {propiedades.map((p, i) => (
+          {propiedades.slice(0, 3).map((p, i) => (
             <li key={p.slug} className={cn(i === 1 && "md:mt-16", i === 2 && "md:mt-32")}>
               <Reveal delay={i * 0.1}>
                 <TarjetaPropiedad p={p} />

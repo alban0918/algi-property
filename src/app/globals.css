@@ -153,13 +153,13 @@ h3 {
   }
 }
 /* Entrada ligada al scroll: sin JavaScript y visible por defecto si el navegador no la soporta. */
+/* Solo desliza, sin cambiar la opacidad: así el texto conserva siempre su contraste completo
+   (un texto a medio fundido falla las mediciones de contraste mientras entra). */
 @keyframes reveal-in {
   from {
-    opacity: 0;
-    transform: translateY(28px);
+    transform: translateY(32px);
   }
   to {
-    opacity: 1;
     transform: none;
   }
 }

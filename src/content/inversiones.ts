@@ -134,7 +134,7 @@ export const inversiones = {
     ],
   },
   cierre: tx(
-    "Según tu perfil de riesgo, el capital disponible y tus objetivos, puedes optar por ingresos pasivos como el alquiler tradicional, inversiones de corto plazo como el flipping o formas innovadoras como el crowdfunding. En ALGI te asesoramos en cada etapa para que saques el máximo provecho a tu inversión.",
-    "Depending on your risk profile, available capital and goals, you can choose passive income such as traditional renting, short-term plays such as flipping, or innovative formats such as crowdfunding. At ALGI we advise you at every stage so you get the most from your investment.",
+    "Según tu perfil de riesgo, el capital disponible y tus objetivos, puedes optar por ingresos pasivos como el alquiler tradicional, inversiones de corto plazo como el flipping o formas innovadoras como el crowdfunding. En ALGI PROPERTY te asesoramos en cada etapa para que saques el máximo provecho a tu inversión.",
+    "Depending on your risk profile, available capital and goals, you can choose passive income such as traditional renting, short-term investments such as flipping, or innovative formats such as crowdfunding. At ALGI PROPERTY we advise you at every stage so you get the most from your investment.",
   ),
 };

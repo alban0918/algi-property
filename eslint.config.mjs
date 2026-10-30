@@ -12,6 +12,8 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Proyecto del video de lanzamiento (no forma parte del sitio).
+    "brag-output/**",
   ]),
 ]);
 

@@ -73,8 +73,8 @@ export const servicios = {
         "A complete service, from finding the ideal property to closing the transaction, with an efficient, hassle-free experience.",
       ),
       cierre: tx(
-        "Con ALGI, comprar y vender se vuelve una experiencia satisfactoria y libre de estrés.",
-        "With ALGI, buying and selling becomes a satisfying, stress-free experience.",
+        "Con ALGI PROPERTY, comprar y vender se vuelve una experiencia satisfactoria y libre de estrés.",
+        "With ALGI PROPERTY, buying and selling becomes a satisfying, stress-free experience.",
       ),
       compradores: [
         {
@@ -134,8 +134,8 @@ export const servicios = {
         "Offices, warehouses, retail units and more, for investors, entrepreneurs and corporations seeking to maximise the value of their real estate investments.",
       ),
       cierre: tx(
-        "Con ALGI, cada transacción comercial aporta valor significativo a tus metas de negocio.",
-        "With ALGI, every commercial transaction adds real value to your business goals.",
+        "Con ALGI PROPERTY, cada transacción comercial aporta valor significativo a tus metas de negocio.",
+        "With ALGI PROPERTY, every commercial transaction adds real value to your business goals.",
       ),
       compradores: [
         {
@@ -244,8 +244,8 @@ export const servicios = {
       },
     ],
     cierre: tx(
-      "Al elegir, compara tasa de interés, plazo, moneda (pesos o UVR) e implicaciones fiscales entre varias entidades. En ALGI te acompañamos a encontrar la financiación más adecuada para ti. Esta información es orientativa y las condiciones cambian: confírmalas con la entidad financiera.",
-      "When choosing, compare interest rate, term, currency (pesos or UVR) and tax implications across several lenders. At ALGI we help you find the most suitable financing. This information is a general guide and conditions change: confirm them with your lender.",
+      "Al elegir, compara tasa de interés, plazo, moneda (pesos o UVR) e implicaciones fiscales entre varias entidades. En ALGI PROPERTY te acompañamos a encontrar la financiación más adecuada para ti. Esta información es orientativa y las condiciones cambian: confírmalas con la entidad financiera.",
+      "When choosing, compare interest rate, term, currency (pesos or UVR) and tax implications across several lenders. At ALGI PROPERTY we help you find the most suitable financing for you. This information is a general guide and conditions change: confirm them with your lender.",
     ),
   },
 

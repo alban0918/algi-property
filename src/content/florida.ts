@@ -1,7 +1,7 @@
 import { tx } from "./tx";
 
 export const florida = {
-  titulo: tx("Invierte en la Florida", "Invest in Florida"),
+  titulo: tx("Invierte en el sur de la Florida", "Invest in South Florida"),
   tituloCursiva: tx("con respaldo local.", "with local support."),
   lead: tx(
     "Financiamiento para extranjeros, propiedades en venta y asesoría legal y tributaria en Estados Unidos, de la mano de aliados con experiencia en el estado.",
@@ -11,8 +11,8 @@ export const florida = {
   financiamiento: {
     titulo: tx("Financiamiento para extranjeros", "Financing for foreign buyers"),
     intro: tx(
-      "Si no eres residente permanente ni ciudadano de Estados Unidos, igual puedes acceder a un préstamo hipotecario. En ALGI contamos con un aliado estratégico que te asesora y acompaña en todo el proceso: Mymortgage247, con amplia experiencia en financiamiento hipotecario en la Florida.",
-      "If you are not a permanent resident or US citizen you can still access a mortgage. At ALGI we work with a strategic partner who advises and supports you throughout the process: Mymortgage247, with broad experience in mortgage financing in Florida.",
+      "Si no eres residente permanente ni ciudadano de Estados Unidos, igual puedes acceder a un préstamo hipotecario. En ALGI PROPERTY contamos con un aliado estratégico que te asesora y acompaña en todo el proceso: MORTGAGE24/7, con amplia experiencia en financiamiento hipotecario en la Florida.",
+      "If you are not a permanent resident or US citizen you can still access a mortgage. At ALGI PROPERTY we work with a strategic partner who advises and supports you throughout the process: MORTGAGE24/7, with broad experience in mortgage financing in Florida.",
     ),
     caracteristicasTitulo: tx("Características habituales", "Typical features"),
     caracteristicas: [
@@ -68,8 +68,8 @@ export const florida = {
   proyectos: {
     titulo: tx("Proyectos y propiedades en venta", "Projects and properties for sale"),
     texto: tx(
-      "Todo lo que necesitas para una inversión exitosa en la Florida lo haces de la mano de ALGI y de nuestro aliado Potential Property Group Real Estate. Consulta las propiedades residenciales y comerciales listadas en su sitio.",
-      "Everything you need for a successful investment in Florida, you do with ALGI and our partner Potential Property Group Real Estate. Browse the residential and commercial properties listed on their site.",
+      "Todo lo que necesitas para una inversión exitosa en la Florida lo haces de la mano de ALGI PROPERTY y de nuestro aliado Potential Property Group Real Estate. Consulta las propiedades residenciales y comerciales listadas en su sitio.",
+      "Everything you need for a successful investment in Florida, you do with ALGI PROPERTY and our partner Potential Property Group Real Estate. Browse the residential and commercial properties listed on their site.",
     ),
     enlace: tx("Ver propiedades en ppgmiami.com", "Browse properties at ppgmiami.com"),
     url: "https://www.ppgmiami.com",
@@ -87,7 +87,7 @@ export const florida = {
     titulo: tx("Nuestros aliados en la Florida", "Our partners in Florida"),
     items: [
       {
-        nombre: "Mymortgage247",
+        nombre: "MORTGAGE24/7",
         rol: tx("Financiamiento hipotecario", "Mortgage financing"),
         url: "https://www.mortgage247experts.com",
         etiquetaUrl: "mortgage247experts.com",

@@ -1,7 +1,7 @@
 {
   "meta": {
     "titulo": "ALGI Property | Consultoría inmobiliaria en Cali y Florida",
-    "descripcion": "Asesoría financiera, legal y tributaria para comprar, vender e invertir en bienes raíces en Cali, Colombia y en la Florida, EE. UU."
+    "descripcion": "Asesoría financiera, legal y tributaria para comprar, vender e invertir en propiedad raíz en Colombia y en el sur de la Florida, EE. UU."
   },
   "comun": {
     "saltar": "Saltar al contenido",
@@ -17,14 +17,14 @@
     "nosotros": "Nosotros",
     "servicios": "Servicios",
     "inversiones": "Inversiones",
-    "florida": "Florida",
+    "florida": "Florida EE. UU.",
     "propiedades": "Propiedades",
     "contacto": "Contacto"
   },
   "hero": {
     "linea1": "Tu éxito,",
     "linea2": "nuestra meta.",
-    "descripcion": "Asesoría financiera, legal y tributaria para comprar, vender e invertir en Cali y en la Florida.",
+    "descripcion": "Asesoría financiera, legal y tributaria para comprar, vender e invertir en propiedad raíz en Colombia y en el sur de la Florida EE. UU.",
     "explorar": "Explorar propiedades",
     "bajar": "Desplázate"
   },
@@ -40,15 +40,21 @@
   ],
   "destacados": {
     "titulo": "Inmuebles disponibles",
-    "descripcion": "Una selección de nuestro portafolio en Cali y Yumbo.",
+    "descripcion": "Una selección de nuestro portafolio en Colombia.",
     "verFicha": "Ver ficha",
     "verTodas": "Ver todas las propiedades",
     "ilustrativa": "Imagen ilustrativa",
     "consultar": "Precio bajo consulta",
     "tipos": {
-      "industrial": "Industrial",
-      "residencial": "Residencial",
-      "edificio": "Edificio"
+      "casa": "Casa",
+      "apartamento": "Apartamento",
+      "apartaestudio": "Apartaestudio",
+      "lote": "Lote",
+      "local": "Local",
+      "bodega": "Bodega",
+      "edificio": "Edificio",
+      "oficina": "Oficina",
+      "hotel": "Hotel"
     },
     "operaciones": {
       "alquiler": "Alquiler",
@@ -67,13 +73,13 @@
   "cta": {
     "titulo": "Hablemos de tu próxima",
     "tituloCursiva": "inversión.",
-    "texto": "Cuéntanos qué buscas y un asesor de ALGI te responde, a cualquier hora.",
+    "texto": "Cuéntanos qué buscas y un asesor de ALGI PROPERTY te responde, a cualquier hora.",
     "whatsapp": "Escribir por WhatsApp"
   },
   "catalogo": {
     "titulo": "Propiedades",
     "tituloCursiva": "disponibles.",
-    "lead": "Casas, bodegas y edificios en Cali y Yumbo, con ficha técnica y fotos de cada inmueble.",
+    "lead": "Consulta nuestras casas, apartamentos, bodegas, lotes y edificios.",
     "operacion": "Filtrar por operación",
     "tipo": "Filtrar por tipo",
     "todas": "Todas",
@@ -82,7 +88,19 @@
     "vacioTitulo": "No hay propiedades con esos filtros.",
     "vacioTexto": "Prueba con otra combinación o escríbenos: tenemos opciones que no están publicadas.",
     "limpiar": "Quitar filtros",
-    "resultadosTitulo": "Resultados"
+    "resultadosTitulo": "Resultados",
+    "categoria": "Filtrar por categoría",
+    "filtroComercial": "Filtrar por tipo de inmueble comercial",
+    "residencial": "Residencial",
+    "comercial": "Comercial",
+    "tiposComercial": {
+      "lote": "Lotes",
+      "local": "Locales",
+      "bodega": "Bodegas",
+      "edificio": "Edificios",
+      "oficina": "Oficinas",
+      "hotel": "Hoteles"
+    }
   },
   "ficha": {
     "volver": "Volver a propiedades",

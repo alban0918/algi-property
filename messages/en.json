@@ -1,7 +1,7 @@
 {
   "meta": {
     "titulo": "ALGI Property | Real estate consulting in Cali and Florida",
-    "descripcion": "Financial, legal and tax advisory to buy, sell and invest in real estate in Cali, Colombia and in Florida, USA."
+    "descripcion": "Financial, legal and tax advisory to buy, sell and invest in real estate in Colombia and in South Florida, USA."
   },
   "comun": {
     "saltar": "Skip to content",
@@ -17,14 +17,14 @@
     "nosotros": "About",
     "servicios": "Services",
     "inversiones": "Investments",
-    "florida": "Florida",
+    "florida": "Florida, USA",
     "propiedades": "Properties",
     "contacto": "Contact"
   },
   "hero": {
     "linea1": "Your success,",
     "linea2": "our goal.",
-    "descripcion": "Financial, legal and tax advisory to buy, sell and invest in Cali and in Florida.",
+    "descripcion": "Financial, legal and tax advisory to buy, sell and invest in real estate in Colombia and in South Florida, USA.",
     "explorar": "Explore properties",
     "bajar": "Scroll"
   },
@@ -40,15 +40,21 @@
   ],
   "destacados": {
     "titulo": "Available properties",
-    "descripcion": "A selection from our portfolio in Cali and Yumbo.",
+    "descripcion": "A selection from our portfolio in Colombia.",
     "verFicha": "View details",
     "verTodas": "View all properties",
     "ilustrativa": "Illustrative image",
     "consultar": "Price on request",
     "tipos": {
-      "industrial": "Industrial",
-      "residencial": "Residential",
-      "edificio": "Building"
+      "casa": "House",
+      "apartamento": "Apartment",
+      "apartaestudio": "Studio apartment",
+      "lote": "Lot",
+      "local": "Retail unit",
+      "bodega": "Warehouse",
+      "edificio": "Building",
+      "oficina": "Office",
+      "hotel": "Hotel"
     },
     "operaciones": {
       "alquiler": "For rent",
@@ -67,13 +73,13 @@
   "cta": {
     "titulo": "Let’s talk about your next",
     "tituloCursiva": "investment.",
-    "texto": "Tell us what you’re looking for and an ALGI advisor will reply, at any hour.",
+    "texto": "Tell us what you’re looking for and an ALGI PROPERTY advisor will reply, at any hour.",
     "whatsapp": "Message us on WhatsApp"
   },
   "catalogo": {
     "titulo": "Available",
     "tituloCursiva": "properties.",
-    "lead": "Houses, warehouses and buildings in Cali and Yumbo, with a data sheet and photos for each property.",
+    "lead": "Browse our houses, apartments, warehouses, lots and buildings.",
     "operacion": "Filter by operation",
     "tipo": "Filter by type",
     "todas": "All",
@@ -82,7 +88,19 @@
     "vacioTitulo": "No properties match those filters.",
     "vacioTexto": "Try another combination or write to us: we have options that aren’t listed.",
     "limpiar": "Clear filters",
-    "resultadosTitulo": "Results"
+    "resultadosTitulo": "Results",
+    "categoria": "Filter by category",
+    "filtroComercial": "Filter by commercial property type",
+    "residencial": "Residential",
+    "comercial": "Commercial",
+    "tiposComercial": {
+      "lote": "Lots",
+      "local": "Retail units",
+      "bodega": "Warehouses",
+      "edificio": "Buildings",
+      "oficina": "Offices",
+      "hotel": "Hotels"
+    }
   },
   "ficha": {
     "volver": "Back to properties",

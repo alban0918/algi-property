@@ -21,26 +21,55 @@ test.describe("selector de idioma", () => {
 });
 
 test.describe("catálogo de propiedades", () => {
-  test("filtra por operación y tipo, y lo refleja en la URL", async ({ page }) => {
+  test("filtra por operación, categoría y tipo comercial, y lo refleja en la URL", async ({ page }) => {
     await page.goto("/es/propiedades");
-    await expect(page.getByText("3 propiedades")).toBeVisible();
+    await expect(page.getByText("9 propiedades")).toBeVisible();
+    // El filtro por tipo solo aparece dentro de la categoría comercial.
+    await expect(page.getByRole("button", { name: "Lotes", exact: true })).toHaveCount(0);
 
-    await page.getByRole("button", { name: "Venta" }).click();
+    await page.getByRole("button", { name: "Venta", exact: true }).click();
     await expect(page).toHaveURL(/operacion=venta/);
-    await expect(page.getByText("2 propiedades")).toBeVisible();
+    await expect(page.getByText("7 propiedades")).toBeVisible();
 
-    await page.getByRole("button", { name: "Industrial" }).click();
+    await page.getByRole("button", { name: "Comercial", exact: true }).click();
+    await expect(page).toHaveURL(/categoria=comercial/);
+    await expect(page.getByText("4 propiedades")).toBeVisible();
+
+    await page.getByRole("button", { name: "Lotes", exact: true }).click();
+    await expect(page).toHaveURL(/tipo=lote/);
+    await expect(page.getByText("1 propiedad", { exact: true })).toBeVisible();
+    await expect(page.getByRole("heading", { name: "Casa Lote Juanambú" })).toBeVisible();
+
+    await page.getByRole("button", { name: "Hoteles", exact: true }).click();
     await expect(page.getByText("No hay propiedades con esos filtros.")).toBeVisible();
 
     await page.getByRole("button", { name: "Quitar filtros" }).click();
+    await expect(page.getByText("9 propiedades")).toBeVisible();
+    await expect(page).not.toHaveURL(/operacion=|categoria=|tipo=/);
+  });
+
+  test("al cambiar de categoría se descarta el tipo comercial", async ({ page }) => {
+    await page.goto("/es/propiedades?categoria=comercial&tipo=local");
+    await expect(page.getByText("2 propiedades")).toBeVisible();
+
+    await page.getByRole("button", { name: "Residencial", exact: true }).click();
+    await expect(page).toHaveURL(/categoria=residencial/);
+    await expect(page).not.toHaveURL(/tipo=/);
     await expect(page.getByText("3 propiedades")).toBeVisible();
-    await expect(page).not.toHaveURL(/operacion=/);
+    await expect(page.getByRole("button", { name: "Lotes", exact: true })).toHaveCount(0);
   });
 
   test("una URL con filtros muestra el resultado filtrado", async ({ page }) => {
-    await page.goto("/en/propiedades?tipo=residencial");
-    await expect(page.getByText("1 property")).toBeVisible();
+    await page.goto("/en/propiedades?categoria=residential");
+    await expect(page.getByText("9 properties")).toBeVisible();
+
+    await page.goto("/en/propiedades?categoria=residencial");
+    await expect(page.getByText("3 properties")).toBeVisible();
     await expect(page.getByRole("heading", { name: "Los Álamos House" })).toBeVisible();
+
+    await page.goto("/en/propiedades?categoria=comercial&tipo=oficina");
+    await expect(page.getByText("1 property")).toBeVisible();
+    await expect(page.getByRole("heading", { name: "Warehouse and Offices in Bogotá" })).toBeVisible();
   });
 });
 
@@ -124,10 +153,10 @@ test.describe("menú móvil", () => {
   });
 });
 
-test("con 'reducir movimiento' el titular de la portada queda visible sin animar", async ({ browser }) => {
+test("con 'reducir movimiento' el titular de la portada queda visible sin animar", async ({ browser, baseURL }) => {
   const contexto = await browser.newContext({ reducedMotion: "reduce" });
   const page = await contexto.newPage();
-  await page.goto("http://localhost:3210/es");
+  await page.goto(`${baseURL}/es`);
   const transform = await page.locator("h1 span.rise").first().evaluate((el) => getComputedStyle(el).transform);
   expect(["none", "matrix(1, 0, 0, 1, 0, 0)"]).toContain(transform);
   await contexto.close();

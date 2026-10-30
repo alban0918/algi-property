@@ -11,11 +11,11 @@ export function JsonLd({ locale }: { locale: "es" | "en" }) {
     slogan: locale === "es" ? "Tu éxito, nuestra meta" : "Your success, our goal",
     description:
       locale === "es"
-        ? "Consultoría inmobiliaria: asesoría financiera, legal y tributaria para comprar, vender e invertir en Cali, Colombia y en la Florida."
-        : "Real estate consulting: financial, legal and tax advisory to buy, sell and invest in Cali, Colombia and in Florida.",
+        ? "Consultoría inmobiliaria: asesoría financiera, legal y tributaria para comprar, vender e invertir en propiedad raíz en Colombia y en el sur de la Florida, EE. UU."
+        : "Real estate consulting: financial, legal and tax advisory to buy, sell and invest in real estate in Colombia and in South Florida, USA.",
     telephone: `+${contacto.telefonoInternacional}`,
     email: contacto.correo,
-    areaServed: ["Cali", "Yumbo", "Colombia", "Florida"],
+    areaServed: ["Cali", "Yumbo", "Bogotá", "Colombia", "Florida"],
     address: { "@type": "PostalAddress", addressLocality: "Cali", addressRegion: "Valle del Cauca", addressCountry: "CO" },
     availableLanguage: ["es", "en"],
   };

@@ -12,6 +12,12 @@ const rutas = [
   "/propiedades/bodega-acopi-850",
   "/propiedades/casa-los-alamos",
   "/propiedades/edificio-granada",
+  "/propiedades/bodega-oficinas-bogota",
+  "/propiedades/locales-spirito",
+  "/propiedades/apartaestudio-bellavista",
+  "/propiedades/apartamento-santa-teresita",
+  "/propiedades/locales-pacific-mall",
+  "/propiedades/casa-lote-juanambu",
   "/contacto",
 ];
 
@@ -38,11 +44,11 @@ for (const idioma of idiomas) {
         expect(ancho).toBeLessThanOrEqual(ventana);
       });
 
-      test("no tiene violaciones de accesibilidad serias (axe, WCAG 2.2 AA)", async ({ browser }) => {
+      test("no tiene violaciones de accesibilidad serias (axe, WCAG 2.2 AA)", async ({ browser, baseURL }) => {
         // Con "reducir movimiento" las animaciones de entrada no ocultan contenido a medias y los contrastes son medibles.
         const contexto = await browser.newContext({ reducedMotion: "reduce" });
         const page = await contexto.newPage();
-        await page.goto(`http://localhost:3210${url}`);
+        await page.goto(`${baseURL}${url}`);
         await page.waitForLoadState("networkidle");
         const resultado = await new AxeBuilder({ page })
           .withTags(["wcag2a", "wcag2aa", "wcag21a", "wcag21aa", "wcag22aa"])

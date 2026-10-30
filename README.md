@@ -2,6 +2,8 @@
 
 Sitio web bilingüe (español e inglés) para **ALGI Property**, una consultoría inmobiliaria de Cali, Colombia, con servicios de asesoría financiera, legal y tributaria, compra y venta, inversión y un puente de inversión hacia la Florida, EE. UU.
 
+**Sitio en vivo: [algi-property.vercel.app](https://algi-property.vercel.app)**
+
 Es un proyecto de portafolio personal. La empresa tuvo un sitio web anterior que ya no existe, y este es un rediseño hecho con el contenido, el logo y los inmuebles que ALGI Property proporcionó para este fin.
 
 ![Portada del sitio en español](docs/capturas/portada-es.jpg)
@@ -11,7 +13,7 @@ Es un proyecto de portafolio personal. La empresa tuvo un sitio web anterior que
 - **Portada cinematográfica** a pantalla completa, con zoom lento de la foto, parallax al desplazar y titulares que suben desde una máscara.
 - **Español e inglés** con un botón ES / EN arriba a la derecha. Un clic cambia el idioma y conserva la página en la que estás. Si entras por `/`, el sitio detecta el idioma del navegador.
 - **7 secciones**: Inicio, Nosotros, Servicios, Inversiones, Florida, Propiedades y Contacto.
-- **Catálogo de propiedades** con filtros por operación y tipo. Las tarjetas se reordenan con animación y los filtros viven en la URL (`?operacion=venta&tipo=residencial`), así se pueden compartir.
+- **Catálogo de 9 propiedades** (Cali, Yumbo y Bogotá) con filtros por operación (venta o alquiler) y categoría (residencial o comercial). Al elegir comercial se despliega un tercer filtro por tipo: lotes, locales, bodegas, edificios, oficinas y hoteles. Las tarjetas se reordenan con animación y los filtros viven en la URL (`?operacion=venta&categoria=comercial&tipo=local`), así se pueden compartir.
 - **Ficha por inmueble** con galería, vista ampliada accesible (teclado, Escape), datos clave y botón de WhatsApp con un mensaje ya redactado para esa propiedad.
 - **Formulario de contacto** que valida los campos y abre WhatsApp o el correo con el mensaje listo. No tiene servidor ni guarda datos.
 - **SEO**: etiquetas `hreflang`, canónicas, Open Graph, `sitemap.xml`, `robots.txt` y datos estructurados de `RealEstateAgent`.
@@ -69,10 +71,10 @@ npm run build
 npm run test:e2e
 ```
 
-Son 76 pruebas:
+Son 113 pruebas:
 
-- Cada una de las 10 páginas en ambos idiomas responde 200, tiene un solo `h1`, no se desborda en 390 px y no tiene violaciones serias de accesibilidad (axe, WCAG 2.2 AA).
-- Cambio de idioma, detección del idioma del navegador, filtros del catálogo, galería, formulario (validación y mensaje de WhatsApp) y menú móvil.
+- Cada una de las 16 páginas en ambos idiomas responde 200, tiene un solo `h1`, no se desborda en 390 px y no tiene violaciones serias de accesibilidad (axe, WCAG 2.2 AA).
+- Cambio de idioma, detección del idioma del navegador, filtros del catálogo (operación, categoría y tipo comercial), galería, formulario (validación y mensaje de WhatsApp) y menú móvil.
 - 404 reales, sitemap y cabeceras de seguridad.
 
 También hay `npm run lint` y `npm run typecheck`.
@@ -118,7 +120,7 @@ DESIGN.md          sistema de diseño: color, tipografía, movimiento
 
 ## In English
 
-Bilingual (Spanish / English) website for ALGI Property, a real estate consultancy in Cali, Colombia. Built with Next.js 16, TypeScript, Tailwind CSS 4 and next-intl, it features a cinematic full-screen hero, a filterable property catalogue, property detail pages with an accessible gallery, a WhatsApp/email contact form and full SEO. It scores 100 for accessibility, best practices and SEO on Lighthouse, and ships with 76 end-to-end tests (Playwright and axe). It is a personal portfolio project built with content supplied by the company.
+Bilingual (Spanish / English) website for ALGI Property, a real estate consultancy in Cali, Colombia. Built with Next.js 16, TypeScript, Tailwind CSS 4 and next-intl, it features a cinematic full-screen hero, a filterable catalogue of 9 properties (residential and commercial), property detail pages with an accessible gallery, a WhatsApp/email contact form and full SEO. It scores 100 for accessibility, best practices and SEO on Lighthouse, and ships with 113 end-to-end tests (Playwright and axe). It is a personal portfolio project built with content supplied by the company.
 
 ## Autor
 

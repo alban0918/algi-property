@@ -50,3 +50,6 @@ next-env.d.ts
 # documentos de trabajo internos que no forman parte del sitio
 /PRODUCT.md
 /AGENTS.md
+
+# video de lanzamiento (se genera localmente)
+/brag-output/

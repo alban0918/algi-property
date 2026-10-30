@@ -40,7 +40,7 @@ export default async function Ficha({ params }: PageProps<"/[locale]/propiedades
 
   const t = await getTranslations({ locale, namespace: "ficha" });
   const td = await getTranslations({ locale, namespace: "destacados" });
-  const otras = propiedades.filter((o) => o.slug !== p.slug);
+  const otras = propiedades.filter((o) => o.slug !== p.slug).slice(0, 2);
   const precio = p.precio ? formatearPrecio(p.precio, locale) : td("consultar");
   const mensaje = t("mensajeWhatsApp", { nombre: p.nombre[locale] });
 

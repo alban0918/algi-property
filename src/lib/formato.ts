@@ -18,6 +18,11 @@ export function formatearPrecio(
       : `COP ${cifra} per m² / month${iva}`;
   }
 
+  if (precio.unidad === "m2") {
+    const cifra = new Intl.NumberFormat(idioma === "es" ? "es-CO" : "en-US").format(precio.valor);
+    return idioma === "es" ? `$${cifra} por m²${iva}` : `COP ${cifra} per m²${iva}`;
+  }
+
   if (precio.unidad === "mes") {
     const cifra = new Intl.NumberFormat(idioma === "es" ? "es-CO" : "en-US").format(precio.valor);
     return idioma === "es" ? `$${cifra}${iva} al mes` : `COP ${cifra}${iva} / month`;

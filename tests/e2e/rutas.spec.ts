@@ -17,7 +17,11 @@ const rutas = [
   "/propiedades/apartaestudio-bellavista",
   "/propiedades/apartamento-santa-teresita",
   "/propiedades/locales-pacific-mall",
-  "/propiedades/casa-lote-juanambu",
+  "/propiedades/lotes-jamundi",
+  "/propiedades/local-centenario",
+  "/propiedades/lote-palmira-las-mercedes",
+  "/propiedades/locales-g-sur",
+  "/propiedades/edificio-fatima",
   "/contacto",
 ];
 

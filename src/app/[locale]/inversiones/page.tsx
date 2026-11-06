@@ -94,9 +94,14 @@ export default async function Inversiones({ params }: PageProps<"/[locale]/inver
             <p className="font-display text-3xl leading-snug font-light sm:text-4xl">{inv.cierre[locale]}</p>
           </Reveal>
           <Reveal delay={0.15}>
-            <Button href={`/${locale}/florida`} variante="enlace">
-              {tx("Inversión en la Florida", "Investing in Florida")[locale]}
-            </Button>
+            <div className="flex flex-col items-start gap-6">
+              <Button href={`/${locale}/propiedades?operacion=inversion`} variante="enlace">
+                {tx("Inversiones con renta Colombia", "Income-producing investments in Colombia")[locale]}
+              </Button>
+              <Button href={`/${locale}/florida`} variante="enlace">
+                {tx("Inversión en la Florida", "Investing in Florida")[locale]}
+              </Button>
+            </div>
           </Reveal>
         </Contenedor>
       </section>

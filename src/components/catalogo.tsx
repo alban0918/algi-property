@@ -9,19 +9,27 @@ import {
   categoriaDe,
   propiedades,
   tiposComerciales,
+  tiposResidenciales,
   type Categoria,
   type Operacion,
-  type TipoComercial,
+  type TipoInmueble,
 } from "@/data/propiedades";
 import { cn } from "@/lib/cn";
 
-type FiltroOperacion = Operacion | "todas";
+/** "inversion" agrupa los inmuebles que generan renta, sin importar si están en venta o alquiler. */
+type FiltroOperacion = Operacion | "inversion" | "todas";
 type FiltroCategoria = Categoria | "todos";
-type FiltroTipo = TipoComercial | "todos";
+type FiltroTipo = TipoInmueble | "todos";
 
-const operaciones: FiltroOperacion[] = ["todas", "venta", "alquiler"];
+const operaciones: FiltroOperacion[] = ["todas", "venta", "alquiler", "inversion"];
 const categorias: FiltroCategoria[] = ["todos", "residencial", "comercial"];
-const tipos: FiltroTipo[] = ["todos", ...tiposComerciales];
+
+/** Tipos que se pueden elegir dentro de cada categoría. */
+function tiposDe(categoria: FiltroCategoria): readonly TipoInmueble[] {
+  if (categoria === "residencial") return tiposResidenciales;
+  if (categoria === "comercial") return tiposComerciales;
+  return [];
+}
 
 function Chip({ activo, onClick, children }: { activo: boolean; onClick: () => void; children: string }) {
   return (
@@ -40,7 +48,7 @@ function Chip({ activo, onClick, children }: { activo: boolean; onClick: () => v
 }
 
 /**
- * Catálogo con filtros por operación, categoría (residencial o comercial) y, dentro de comercial, por tipo.
+ * Catálogo con filtros por operación (o inversión), categoría (residencial o comercial) y, dentro de cada categoría, por tipo.
  * Las tarjetas se reordenan con animación de layout.
  */
 export function Catalogo() {
@@ -57,14 +65,14 @@ export function Catalogo() {
   const ti = params.get("tipo");
   const operacion: FiltroOperacion = operaciones.includes(op as FiltroOperacion) ? (op as FiltroOperacion) : "todas";
   const categoria: FiltroCategoria = categorias.includes(ca as FiltroCategoria) ? (ca as FiltroCategoria) : "todos";
-  // El tipo solo existe dentro de la categoría comercial.
-  const tipo: FiltroTipo = categoria === "comercial" && tipos.includes(ti as FiltroTipo) ? (ti as FiltroTipo) : "todos";
+  // El tipo solo existe dentro de una categoría y debe pertenecer a ella.
+  const tipo: FiltroTipo = tiposDe(categoria).includes(ti as TipoInmueble) ? (ti as TipoInmueble) : "todos";
 
   function filtrar(nuevo: { operacion?: FiltroOperacion; categoria?: FiltroCategoria; tipo?: FiltroTipo }) {
     const o = nuevo.operacion ?? operacion;
     const c = nuevo.categoria ?? categoria;
-    // Al cambiar de categoría se descarta el tipo; fuera de comercial no hay tipos.
-    const x = c === "comercial" ? (nuevo.tipo ?? (nuevo.categoria ? "todos" : tipo)) : "todos";
+    // Al cambiar de categoría se descarta el tipo; sin categoría no hay tipos.
+    const x = c !== "todos" ? (nuevo.tipo ?? (nuevo.categoria ? "todos" : tipo)) : "todos";
     const query: Record<string, string> = {};
     if (o !== "todas") query.operacion = o;
     if (c !== "todos") query.categoria = c;
@@ -74,7 +82,7 @@ export function Catalogo() {
 
   const visibles = propiedades.filter(
     (p) =>
-      (operacion === "todas" || p.operacion === operacion) &&
+      (operacion === "todas" || (operacion === "inversion" ? p.inversion : p.operacion === operacion)) &&
       (categoria === "todos" || categoriaDe(p.tipo) === categoria) &&
       (tipo === "todos" || p.tipo === tipo || p.tambien?.includes(tipo)),
   );
@@ -87,7 +95,7 @@ export function Catalogo() {
             <legend className="sr-only">{t("operacion")}</legend>
             {operaciones.map((o) => (
               <Chip key={o} activo={operacion === o} onClick={() => filtrar({ operacion: o })}>
-                {o === "todas" ? t("todas") : td(`operaciones.${o}`)}
+                {o === "todas" ? t("todas") : o === "inversion" ? t("inversion") : td(`operaciones.${o}`)}
               </Chip>
             ))}
           </fieldset>
@@ -99,20 +107,24 @@ export function Catalogo() {
               </Chip>
             ))}
           </fieldset>
-          <AnimatePresence initial={false}>
-            {categoria === "comercial" && (
+          <AnimatePresence initial={false} mode="wait">
+            {categoria !== "todos" && (
               <motion.fieldset
-                key="tipos-comerciales"
+                key={`tipos-${categoria}`}
                 className="flex flex-wrap items-center gap-2"
                 initial={sinMovimiento ? false : { opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={sinMovimiento ? undefined : { opacity: 0, y: -10 }}
-                transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+                transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
               >
-                <legend className="sr-only">{t("filtroComercial")}</legend>
-                {tipos.map((x) => (
+                <legend className="sr-only">{categoria === "comercial" ? t("filtroComercial") : t("filtroResidencial")}</legend>
+                {(["todos", ...tiposDe(categoria)] as FiltroTipo[]).map((x) => (
                   <Chip key={x} activo={tipo === x} onClick={() => filtrar({ tipo: x })}>
-                    {x === "todos" ? t("todos") : t(`tiposComercial.${x}`)}
+                    {x === "todos"
+                      ? t("todos")
+                      : categoria === "comercial"
+                        ? t(`tiposComercial.${x as (typeof tiposComerciales)[number]}`)
+                        : t(`tiposResidencial.${x as (typeof tiposResidenciales)[number]}`)}
                   </Chip>
                 ))}
               </motion.fieldset>

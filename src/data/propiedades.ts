@@ -6,7 +6,7 @@
 export type Idioma = "es" | "en";
 export type Texto = Record<Idioma, string>;
 
-export const tiposResidenciales = ["casa", "apartamento", "apartaestudio"] as const;
+export const tiposResidenciales = ["casa", "apartamento", "apartaestudio", "finca"] as const;
 export const tiposComerciales = ["lote", "local", "bodega", "edificio", "oficina", "hotel"] as const;
 
 export type TipoResidencial = (typeof tiposResidenciales)[number];
@@ -33,14 +33,16 @@ export interface Propiedad {
   tipo: TipoInmueble;
   /** Otros tipos con los que también debe aparecer al filtrar (por ejemplo, bodega con oficinas). */
   tambien?: TipoInmueble[];
+  /** Inmueble que genera renta; aparece en el filtro "Propiedades de inversión". */
+  inversion?: boolean;
   operacion: Operacion;
   nombre: Texto;
   ubicacion: { barrio: Texto; ciudad: string; detalle?: Texto };
   /** Precio en pesos colombianos. Ausente = "consultar". */
   precio?: {
     valor: number;
-    /** Unidad del precio: total, canon total al mes o por metro cuadrado al mes. */
-    unidad: "total" | "mes" | "m2-mes";
+    /** Unidad del precio: total, por metro cuadrado, canon total al mes o por metro cuadrado al mes. */
+    unidad: "total" | "mes" | "m2" | "m2-mes";
     masIva?: boolean;
   };
   resumen: Texto;
@@ -409,37 +411,194 @@ export const propiedades: Propiedad[] = [
     },
   },
   {
-    slug: "casa-lote-juanambu",
+    slug: "lotes-jamundi",
     tipo: "lote",
     operacion: "venta",
-    nombre: { es: "Casa Lote Juanambú", en: "Juanambú Lot with House" },
+    nombre: { es: "Lotes en Jamundí", en: "Lots in Jamundí" },
     ubicacion: {
-      barrio: { es: "Barrio Juanambú", en: "Juanambú neighbourhood" },
-      ciudad: "Cali",
-      detalle: { es: "Sobre la Avenida 9AN", en: "On Avenida 9AN" },
+      barrio: { es: "Autopista Panamericana", en: "Panamericana Highway" },
+      ciudad: "Jamundí",
+      detalle: {
+        es: "Limita con la Autopista Panamericana y con los barrios Ciudadela Terranova y Terranova Apartamentos Sector J",
+        en: "Borders the Panamericana Highway and the Ciudadela Terranova and Terranova Apartamentos Sector J neighbourhoods",
+      },
     },
-    precio: { valor: 1_600_000_000, unidad: "total" },
+    precio: { valor: 9_000_000_000, unidad: "total" },
     resumen: {
-      es: "Lote de 502,66 m² para el desarrollo de proyectos habitacionales o apartaestudios para rentas cortas o largas, con excelente ubicación en el nor-oeste de Cali.",
-      en: "502.66 m² lot for residential developments or studio apartments for short or long-term rentals, in an excellent north-west Cali location.",
+      es: "Lote de terreno de 60.540 m² con uso de suelo residencial y servicios públicos aprobados para hasta 180 edificios de hasta 5 pisos, sobre la Autopista Panamericana.",
+      en: "60,540 m² plot with residential zoning and utilities approved for up to 180 buildings of up to 5 floors, on the Panamericana Highway.",
     },
     datos: [
-      { etiqueta: { es: "Área del lote", en: "Lot area" }, valor: { es: "502,66 m²", en: "502.66 m²" } },
-      { etiqueta: { es: "Uso del suelo", en: "Zoning" }, valor: { es: "Residencial", en: "Residential" } },
-      { etiqueta: { es: "Ubicación", en: "Location" }, valor: { es: "Juanambú, Av. 9AN", en: "Juanambú, Av. 9AN" } },
+      { etiqueta: { es: "Área total", en: "Total area" }, valor: { es: "60.540 m²", en: "60,540 m²" } },
+      { etiqueta: { es: "Lote 1", en: "Lot 1" }, valor: { es: "5.220 m²", en: "5,220 m²" } },
+      { etiqueta: { es: "Lote 2", en: "Lot 2" }, valor: { es: "14.790 m²", en: "14,790 m²" } },
+      { etiqueta: { es: "Lote 3", en: "Lot 3" }, valor: { es: "40.530 m²", en: "40,530 m²" } },
+      { etiqueta: { es: "Uso de suelo", en: "Zoning" }, valor: { es: "Residencial", en: "Residential" } },
     ],
     caracteristicas: [
-      { es: "Lote para desarrollo habitacional", en: "Lot for residential development" },
-      { es: "Apto para apartaestudios de renta corta o larga", en: "Suitable for studio apartments for short or long-term rental" },
-      { es: "Excelente ubicación en el nor-oeste de Cali", en: "Excellent north-west Cali location" },
-      { es: "Sector residencial cerca de centros comerciales, clínicas, restaurantes, tiendas y cafés gourmet", en: "Residential area close to shopping centres, clinics, restaurants, shops and gourmet cafés" },
+      { es: "Uso de suelo residencial", en: "Residential zoning" },
+      { es: "Servicios públicos aprobados para hasta 180 edificios", en: "Utilities approved for up to 180 buildings" },
+      { es: "Edificios de hasta 5 pisos", en: "Buildings of up to 5 floors" },
+      { es: "Frente a la Autopista Panamericana", en: "Fronting the Panamericana Highway" },
+      { es: "Colinda con Ciudadela Terranova y Terranova Apartamentos Sector J", en: "Adjoins Ciudadela Terranova and Terranova Apartamentos Sector J" },
     ],
     fotos: [
-      { archivo: `${base}/casa-lote-juanambu/01-vista-aerea.webp`, alt: { es: "Vista aérea con el lote marcado en amarillo", en: "Aerial view with the lot outlined in yellow" } },
-      { archivo: `${base}/casa-lote-juanambu/02-muro-vegetacion.webp`, alt: { es: "Muro de piedra cubierto de vegetación", en: "Stone wall covered in vegetation" } },
-      { archivo: `${base}/casa-lote-juanambu/03-calle.webp`, alt: { es: "Calle junto al lote con muro de piedra", en: "Street next to the lot with a stone wall" } },
-      { archivo: `${base}/casa-lote-juanambu/04-vista-satelital.webp`, alt: { es: "Vista satelital del lote y su entorno", en: "Satellite view of the lot and its surroundings" } },
-      { archivo: `${base}/casa-lote-juanambu/05-entorno.webp`, alt: { es: "Ubicación del lote en el barrio", en: "Location of the lot in the neighbourhood" } },
+      { archivo: `${base}/lotes-jamundi/01-vista-aerea.webp`, alt: { es: "Vista aérea con el lote delimitado en amarillo", en: "Aerial view with the plot outlined in yellow" } },
+      { archivo: `${base}/lotes-jamundi/02-delimitacion.webp`, alt: { es: "Delimitación del lote junto a los conjuntos residenciales", en: "Plot boundary next to the residential complexes" } },
+      { archivo: `${base}/lotes-jamundi/03-entorno.webp`, alt: { es: "Ubicación del lote y su entorno urbano", en: "Location of the plot and its urban surroundings" } },
+      { archivo: `${base}/lotes-jamundi/04-glorieta.webp`, alt: { es: "Glorieta cercana al lote", en: "Roundabout near the plot" } },
+    ],
+  },
+  {
+    slug: "local-centenario",
+    tipo: "local",
+    inversion: true,
+    operacion: "venta",
+    nombre: { es: "Local Centenario", en: "Centenario Retail Unit" },
+    ubicacion: {
+      barrio: { es: "Centro Empresarial Torre Centenario", en: "Torre Centenario Business Centre" },
+      ciudad: "Cali",
+    },
+    precio: { valor: 2_565_000_000, unidad: "total" },
+    resumen: {
+      es: "Local comercial de 344,48 m² con renta, arrendado a D1 en el Centro Empresarial Torre Centenario, con incremento anual de IPC + 1.",
+      en: "344.48 m² income-producing retail unit leased to D1 in the Torre Centenario Business Centre, with an annual increase of CPI + 1.",
+    },
+    datos: [
+      { etiqueta: { es: "Área", en: "Area" }, valor: { es: "344,48 m²", en: "344.48 m²" } },
+      { etiqueta: { es: "Arrendatario", en: "Tenant" }, valor: { es: "D1", en: "D1" } },
+      { etiqueta: { es: "Renovación del contrato", en: "Lease renewal" }, valor: { es: "Febrero de 2026", en: "February 2026" } },
+      { etiqueta: { es: "Rentabilidad", en: "Yield" }, valor: { es: "0,85 %", en: "0.85%" } },
+      { etiqueta: { es: "Incremento anual", en: "Annual increase" }, valor: { es: "IPC + 1", en: "CPI + 1" } },
+    ],
+    caracteristicas: [
+      { es: "Local comercial con renta", en: "Income-producing retail unit" },
+      { es: "Arrendatario de marca reconocida (D1)", en: "Well-known brand as tenant (D1)" },
+      { es: "Incremento anual de IPC + 1", en: "Annual increase of CPI + 1" },
+      { es: "Ubicado en el Centro Empresarial Torre Centenario", en: "Located in the Torre Centenario Business Centre" },
+    ],
+    fotos: [
+      { archivo: `${base}/local-centenario/01-fachada.webp`, alt: { es: "Fachada del edificio del local", en: "Façade of the building housing the unit" } },
+      { archivo: `${base}/local-centenario/02-edificio-esquina.webp`, alt: { es: "Edificio visto desde la esquina", en: "Building seen from the corner" } },
+      { archivo: `${base}/local-centenario/03-vista-lateral.webp`, alt: { es: "Vista lateral del edificio", en: "Side view of the building" } },
+      { archivo: `${base}/local-centenario/04-local-interior.webp`, alt: { es: "Interior del local con góndolas", en: "Unit interior with shelving" } },
+      { archivo: `${base}/local-centenario/05-local-pasillo.webp`, alt: { es: "Pasillo central del local", en: "Central aisle of the unit" } },
+      { archivo: `${base}/local-centenario/06-local-gondolas.webp`, alt: { es: "Zona de góndolas del local", en: "Shelving area of the unit" } },
+      { archivo: `${base}/local-centenario/07-calle.webp`, alt: { es: "Calle frente al edificio", en: "Street in front of the building" } },
+      { archivo: `${base}/local-centenario/08-vista-satelital.webp`, alt: { es: "Vista satelital de la ubicación", en: "Satellite view of the location" } },
+    ],
+  },
+  {
+    slug: "lote-palmira-las-mercedes",
+    tipo: "lote",
+    operacion: "venta",
+    nombre: { es: "Lote Las Mercedes, Palmira", en: "Las Mercedes Lot, Palmira" },
+    ubicacion: {
+      barrio: { es: "Sector Las Mercedes", en: "Las Mercedes district" },
+      ciudad: "Palmira",
+    },
+    precio: { valor: 750_000, unidad: "m2" },
+    resumen: {
+      es: "Lote de 8.000 m² en la zona de expansión urbana Las Mercedes, con uso de suelo mixto de vivienda y comercio, en una de las zonas de mayor proyección de Palmira.",
+      en: "8,000 m² plot in the Las Mercedes urban expansion area, with mixed housing and commercial zoning, in one of Palmira's fastest-growing districts.",
+    },
+    datos: [
+      { etiqueta: { es: "Área", en: "Area" }, valor: { es: "8.000 m²", en: "8,000 m²" } },
+      { etiqueta: { es: "Uso de suelo", en: "Zoning" }, valor: { es: "Vivienda y comercio", en: "Housing and commercial" } },
+      { etiqueta: { es: "Altura máxima", en: "Maximum height" }, valor: { es: "10 pisos", en: "10 floors" } },
+      { etiqueta: { es: "Ocupación máxima", en: "Maximum site coverage" }, valor: { es: "0,80, con loteo individual", en: "0.80, with individual subdivision" } },
+      { etiqueta: { es: "Plan parcial", en: "Partial plan" }, valor: { es: "Las Mercedes, Acuerdo 080 de 2011", en: "Las Mercedes, Agreement 080 of 2011" } },
+    ],
+    caracteristicas: [
+      { es: "Zona de expansión urbana Las Mercedes, reglamentada por el Acuerdo 080 de 2011 del POT", en: "Las Mercedes urban expansion area, regulated by Agreement 080 of 2011 of the land-use plan" },
+      { es: "Apto para proyectos residenciales, conjuntos multifamiliares, uso mixto o iniciativas comerciales", en: "Suitable for residential projects, multifamily complexes, mixed use or commercial ventures" },
+      { es: "Sector residencial de estratos 3, 4 y 5, con proyectos de vivienda de clase media y media-alta", en: "Residential area of socioeconomic strata 3, 4 and 5, with middle and upper-middle income housing projects" },
+      { es: "Acceso a colegios, servicios de salud, comercio y corredores viales hacia Palmira, Cali y el corredor industrial del Valle", en: "Access to schools, healthcare, shops and roads linking Palmira, Cali and the Valle industrial corridor" },
+      { es: "Palmira: más de 300.000 habitantes, segunda ciudad del Valle del Cauca y cercana al aeropuerto Alfonso Bonilla Aragón", en: "Palmira: over 300,000 inhabitants, the second city of Valle del Cauca, close to Alfonso Bonilla Aragón airport" },
+    ],
+    fotos: [
+      { archivo: `${base}/lote-palmira-las-mercedes/01-lote.webp`, alt: { es: "Vista aérea del lote delimitado en amarillo", en: "Aerial view of the plot outlined in yellow" } },
+      { archivo: `${base}/lote-palmira-las-mercedes/02-delimitacion.webp`, alt: { es: "Delimitación del lote entre cultivos", en: "Plot boundary among farmland" } },
+      { archivo: `${base}/lote-palmira-las-mercedes/03-entorno.webp`, alt: { es: "Ubicación del lote y su entorno urbano", en: "Location of the plot and its urban surroundings" } },
+      { archivo: `${base}/lote-palmira-las-mercedes/04-plan-parcial.webp`, alt: { es: "Plano del plan parcial de la zona de expansión Las Mercedes", en: "Plan of the Las Mercedes expansion area partial plan" } },
+    ],
+    nota: {
+      es: "El precio es por metro cuadrado.",
+      en: "The price is per square metre.",
+    },
+  },
+  {
+    slug: "locales-g-sur",
+    tipo: "local",
+    inversion: true,
+    operacion: "venta",
+    nombre: { es: "Locales G Sur con Renta", en: "G Sur Retail Units with Income" },
+    ubicacion: {
+      barrio: { es: "Barrio El Caney", en: "El Caney neighbourhood" },
+      ciudad: "Cali",
+      detalle: {
+        es: "Avenida Calle 48 entre carreras 83C y 83E, sur de Cali",
+        en: "Avenida Calle 48 between carreras 83C and 83E, south Cali",
+      },
+    },
+    precio: { valor: 6_500_000_000, unidad: "total" },
+    resumen: {
+      es: "Locales con renta de marcas reconocidas (Cruz Verde, La Mejor y Dollarcity), en zona residencial del sur de Cali cercana a supermercados generadores de tráfico.",
+      en: "Retail units leased to well-known brands (Cruz Verde, La Mejor and Dollarcity), in a residential area of south Cali close to traffic-generating supermarkets.",
+    },
+    datos: [
+      { etiqueta: { es: "Área total construida", en: "Total built area" }, valor: { es: "722 m²", en: "722 m²" } },
+      { etiqueta: { es: "Área Cruz Verde", en: "Cruz Verde area" }, valor: { es: "80 m²", en: "80 m²" } },
+      { etiqueta: { es: "Área La Mejor", en: "La Mejor area" }, valor: { es: "161 m²", en: "161 m²" } },
+      { etiqueta: { es: "Área Dollarcity", en: "Dollarcity area" }, valor: { es: "581 m²", en: "581 m²" } },
+      { etiqueta: { es: "Renta actual", en: "Current rent" }, valor: { es: "$53,4 millones", en: "COP 53.4 million" } },
+      { etiqueta: { es: "Rentabilidad", en: "Yield" }, valor: { es: "0,82 %", en: "0.82%" } },
+    ],
+    caracteristicas: [
+      { es: "Locales arrendados a marcas reconocidas", en: "Units leased to well-known brands" },
+      { es: "Zona residencial en el sur de Cali", en: "Residential area in south Cali" },
+      { es: "Cerca de generadores de tráfico: supermercados Surtifamiliar, Ara y Bodytech", en: "Close to traffic generators: Surtifamiliar and Ara supermarkets and Bodytech" },
+      { es: "Frente a la Avenida Calle 48", en: "Fronting Avenida Calle 48" },
+    ],
+    fotos: [
+      { archivo: `${base}/locales-g-sur/01-fachada-locales.webp`, alt: { es: "Fachada de los locales con Cruz Verde, La Mejor y Dollarcity", en: "Façade of the units with Cruz Verde, La Mejor and Dollarcity" } },
+      { archivo: `${base}/locales-g-sur/02-vista-calle.webp`, alt: { es: "Locales vistos desde la avenida", en: "Units seen from the avenue" } },
+      { archivo: `${base}/locales-g-sur/03-plano.webp`, alt: { es: "Plano de distribución de los locales", en: "Floor plan showing the layout of the units" } },
+    ],
+  },
+  {
+    slug: "edificio-fatima",
+    tipo: "edificio",
+    inversion: true,
+    operacion: "venta",
+    nombre: { es: "Edificio Fátima Apartaestudios", en: "Fátima Studio Apartments Building" },
+    ubicacion: {
+      barrio: { es: "Barrio Granada", en: "Granada neighbourhood" },
+      ciudad: "Cali",
+      detalle: { es: "Avenida 7N # 17AN-60", en: "Avenida 7N # 17AN-60" },
+    },
+    precio: { valor: 1_100_000_000, unidad: "total" },
+    resumen: {
+      es: "Edificio de tres pisos con 9 apartaestudios en el corazón de Granada, con ingreso mensual por arrendamientos y alta demanda en el sector.",
+      en: "Three-storey building with 9 studio apartments in the heart of Granada, with monthly rental income and strong demand in the area.",
+    },
+    datos: [
+      { etiqueta: { es: "Área del lote", en: "Lot area" }, valor: { es: "158 m²", en: "158 m²" } },
+      { etiqueta: { es: "Área construida", en: "Built area" }, valor: { es: "Aprox. 450 m²", en: "Approx. 450 m²" } },
+      { etiqueta: { es: "Pisos", en: "Floors" }, valor: { es: "3", en: "3" } },
+      { etiqueta: { es: "Apartaestudios", en: "Studio apartments" }, valor: { es: "9", en: "9" } },
+      { etiqueta: { es: "Ingreso mensual por arrendamientos", en: "Monthly rental income" }, valor: { es: "$7.755.000", en: "COP 7,755,000" } },
+    ],
+    caracteristicas: [
+      { es: "9 apartaestudios en 3 pisos", en: "9 studio apartments over 3 floors" },
+      { es: "Ingreso mensual por arrendamientos", en: "Monthly rental income" },
+      { es: "Excelente ubicación y alta demanda en el sector", en: "Excellent location and strong demand in the area" },
+      { es: "Una inversión segura en el corazón de Granada", en: "A secure investment in the heart of Granada" },
+    ],
+    fotos: [
+      { archivo: `${base}/edificio-fatima/01-fachada.webp`, alt: { es: "Fachada del Edificio Fátima", en: "Façade of the Fátima Building" } },
+      { archivo: `${base}/edificio-fatima/02-vista-frontal.webp`, alt: { es: "Vista frontal del edificio", en: "Front view of the building" } },
+      { archivo: `${base}/edificio-fatima/03-vista-lateral.webp`, alt: { es: "Vista lateral y garaje del edificio", en: "Side view and garage of the building" } },
     ],
   },
 ];

@@ -103,23 +103,53 @@ FOTOS_NUEVAS = {
         (f"{P}-p2-4-756x400.png", "05-niveles-comerciales"),
         (f"{P}-p1-3-1280x963.png", "06-pasillo-local"),
     ],
-    "casa-lote-juanambu": [
-        ("juanambu-ficha.jpeg", "01-vista-aerea", (0, 0, 797, 530)),
-        ("juanambu-ficha.jpeg", "02-muro-vegetacion", (385, 1037, 758, 1332)),
-        ("juanambu-ficha.jpeg", "03-calle", (0, 730, 375, 1025)),
-        ("juanambu-ficha.jpeg", "04-vista-satelital", (385, 730, 758, 1025)),
-        ("juanambu-ficha.jpeg", "05-entorno", (0, 1037, 375, 1332)),
+}
+
+# Segunda tanda de fichas (carpeta _fuente/fotos-nuevas2).
+NUEVAS2 = "_fuente/fotos-nuevas2"
+FOTOS_NUEVAS2 = {
+    "lotes-jamundi": [
+        ("jamundi-p2-1-962x521.png", "01-vista-aerea"),
+        ("jamundi-p2-2-1177x492.png", "02-delimitacion"),
+        ("jamundi-p1-1-1078x574.png", "03-entorno"),
+        ("jamundi-p3-1-474x283.png", "04-glorieta"),
+    ],
+    "local-centenario": [
+        ("centenario-p1-2-838x630.png", "01-fachada"),
+        ("centenario-p2-5-845x576.png", "02-edificio-esquina"),
+        ("centenario-p1-6-576x433.png", "03-vista-lateral"),
+        ("centenario-p1-1-576x433.png", "04-local-interior"),
+        ("centenario-p2-4-595x433.png", "05-local-pasillo"),
+        ("centenario-p2-8-576x433.png", "06-local-gondolas"),
+        ("centenario-p1-3-576x433.png", "07-calle"),
+        ("centenario-p2-3-947x518.png", "08-vista-satelital"),
+    ],
+    "lote-palmira-las-mercedes": [
+        ("palmira-p1-2-1031x563.png", "01-lote"),
+        ("palmira-p1-4-991x556.png", "02-delimitacion"),
+        ("palmira-p1-1-888x559.png", "03-entorno"),
+        ("palmira-p2-2-774x533.png", "04-plan-parcial"),
+    ],
+    "locales-g-sur": [
+        ("gsur-ficha.png", "01-fachada-locales", (55, 482, 691, 905)),
+        ("gsur-ficha.png", "02-vista-calle", (55, 915, 691, 1338)),
+        ("gsur-ficha.png", "03-plano", (55, 1362, 691, 1786)),
+    ],
+    "edificio-fatima": [
+        ("fatima-ficha.jpeg", "01-fachada", (0, 0, 745, 490)),
+        ("fatima-ficha.jpeg", "02-vista-frontal", (22, 822, 330, 1008)),
+        ("fatima-ficha.jpeg", "03-vista-lateral", (22, 1020, 330, 1232)),
     ],
 }
 
 
-def procesar_nuevas() -> None:
-    for slug, fotos in FOTOS_NUEVAS.items():
+def procesar_nuevas(fotos_por_slug=FOTOS_NUEVAS, carpeta=NUEVAS) -> None:
+    for slug, fotos in fotos_por_slug.items():
         destino = SALIDA / slug
         destino.mkdir(parents=True, exist_ok=True)
         for foto in fotos:
             origen, nombre = foto[0], foto[1]
-            img = Image.open(RAIZ / NUEVAS / origen).convert("RGB")
+            img = Image.open(RAIZ / carpeta / origen).convert("RGB")
             if len(foto) > 2:
                 img = img.crop(foto[2])
             img.thumbnail((MAX_LADO, MAX_LADO), Image.LANCZOS)
@@ -145,3 +175,4 @@ def procesar() -> None:
 if __name__ == "__main__":
     procesar()
     procesar_nuevas()
+    procesar_nuevas(FOTOS_NUEVAS2, NUEVAS2)

@@ -54,7 +54,8 @@
       "bodega": "Warehouse",
       "edificio": "Building",
       "oficina": "Office",
-      "hotel": "Hotel"
+      "hotel": "Hotel",
+      "finca": "Country estate"
     },
     "operaciones": {
       "alquiler": "For rent",
@@ -100,6 +101,14 @@
       "edificio": "Buildings",
       "oficina": "Offices",
       "hotel": "Hotels"
+    },
+    "inversion": "Investment properties",
+    "filtroResidencial": "Filter by residential property type",
+    "tiposResidencial": {
+      "casa": "Houses",
+      "apartamento": "Apartments",
+      "apartaestudio": "Studio apartments",
+      "finca": "Country estates"
     }
   },
   "ficha": {

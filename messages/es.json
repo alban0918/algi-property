@@ -54,7 +54,8 @@
       "bodega": "Bodega",
       "edificio": "Edificio",
       "oficina": "Oficina",
-      "hotel": "Hotel"
+      "hotel": "Hotel",
+      "finca": "Finca"
     },
     "operaciones": {
       "alquiler": "Alquiler",
@@ -100,6 +101,14 @@
       "edificio": "Edificios",
       "oficina": "Oficinas",
       "hotel": "Hoteles"
+    },
+    "inversion": "Propiedades de inversión",
+    "filtroResidencial": "Filtrar por tipo de inmueble residencial",
+    "tiposResidencial": {
+      "casa": "Casas",
+      "apartamento": "Apartamentos",
+      "apartaestudio": "Aparta estudios",
+      "finca": "Fincas"
     }
   },
   "ficha": {

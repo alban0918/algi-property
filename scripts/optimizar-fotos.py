@@ -112,7 +112,6 @@ FOTOS_NUEVAS2 = {
         ("jamundi-p2-1-962x521.png", "01-vista-aerea"),
         ("jamundi-p2-2-1177x492.png", "02-delimitacion"),
         ("jamundi-p1-1-1078x574.png", "03-entorno"),
-        ("jamundi-p3-1-474x283.png", "04-glorieta"),
     ],
     "local-centenario": [
         ("centenario-p1-2-838x630.png", "01-fachada"),

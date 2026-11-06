@@ -446,7 +446,6 @@ export const propiedades: Propiedad[] = [
       { archivo: `${base}/lotes-jamundi/01-vista-aerea.webp`, alt: { es: "Vista aérea con el lote delimitado en amarillo", en: "Aerial view with the plot outlined in yellow" } },
       { archivo: `${base}/lotes-jamundi/02-delimitacion.webp`, alt: { es: "Delimitación del lote junto a los conjuntos residenciales", en: "Plot boundary next to the residential complexes" } },
       { archivo: `${base}/lotes-jamundi/03-entorno.webp`, alt: { es: "Ubicación del lote y su entorno urbano", en: "Location of the plot and its urban surroundings" } },
-      { archivo: `${base}/lotes-jamundi/04-glorieta.webp`, alt: { es: "Glorieta cercana al lote", en: "Roundabout near the plot" } },
     ],
   },
   {

@@ -141,6 +141,109 @@ FOTOS_NUEVAS2 = {
     ],
 }
 
+# Tercera tanda de fichas (carpeta _fuente/fotos-nuevas3).
+NUEVAS3 = "_fuente/fotos-nuevas3"
+FOTOS_NUEVAS3 = {
+    "casa-la-morada": [
+        ("Casa_La_Morada-p1-2-819x585.png", "01-fachada-piscina"),
+        ("Casa_La_Morada-p1-3-412x325.png", "02-jardin"),
+        ("Casa_La_Morada-p1-4-412x325.png", "03-piscina"),
+        ("Casa_La_Morada-p2-2-831x585.png", "04-lateral"),
+        ("Casa_La_Morada-p1-5-412x325.png", "05-fachada-lateral"),
+        ("Casa_La_Morada-p2-3-572x325.png", "06-acceso"),
+        ("Casa_La_Morada-p2-4-572x325.png", "07-piscina-jardin"),
+        ("Casa_La_Morada-p2-5-572x325.png", "08-parqueadero"),
+        ("Casa_La_Morada-p1-6-412x325.png", "09-ventanales"),
+        ("Casa_La_Morada-p2-6-572x325.png", "10-habitacion"),
+    ],
+    "casa-condominio-las-mercedes": [
+        ("Casa_Las_Mercedes-p1-2-2912x1942.png", "01-piscina"),
+        ("Casa_Las_Mercedes-p2-1-2496x1665.png", "02-comedor"),
+        ("Casa_Las_Mercedes-p2-2-2496x1665.png", "03-jardin-fuente"),
+        ("Casa_Las_Mercedes-p2-3-1248x833.png", "04-sala"),
+        ("Casa_Las_Mercedes-p2-4-1248x833.png", "05-capilla"),
+        ("Casa_Las_Mercedes-p3-3-1248x833.png", "06-terraza-piscina"),
+        ("Casa_Las_Mercedes-p3-4-1248x833.png", "07-escalera-doble-altura"),
+        ("Casa_Las_Mercedes-p4-3-1248x833.png", "08-sala-estar"),
+        ("Casa_Las_Mercedes-p4-4-1248x833.png", "09-piscina-dia"),
+        ("Casa_Las_Mercedes-p6-1-1248x833.png", "10-billar"),
+        ("Casa_Las_Mercedes-p6-2-1248x833.png", "11-discoteca"),
+        ("Casa_Las_Mercedes-p6-3-1248x833.png", "12-piscina-noche"),
+        ("Casa_Las_Mercedes-p7-1-2912x1942.png", "13-vista-nocturna"),
+        ("Casa_Las_Mercedes-p8-1-1020x585.png", "14-vista-aerea"),
+    ],
+    "casa-pance-bello-horizonte": [
+        ("Casa_Pance-p1-2-1120x843.png", "01-fachada"),
+        ("Casa_Pance_Bello_Horizonte-p1-1-1024x768.png", "02-fachada-frontal"),
+        ("Casa_Pance-p2-3-800x602.png", "03-terraza-piscina"),
+        ("Casa_Pance-p2-2-1024x768.png", "04-piscina"),
+        ("Casa_Pance-p1-4-640x482.png", "05-sala"),
+        ("Casa_Pance-p1-5-482x640.png", "06-comedor-escalera"),
+        ("Casa_Pance-p1-6-640x482.png", "07-cocina"),
+        ("Casa_Pance-p2-4-800x602.png", "08-piscina-casa"),
+        ("Casa_Pance_Bello_Horizonte-p2-1-1024x768.png", "09-corredor-piscina"),
+        ("Casa_Pance-p2-5-768x578.png", "10-comedor-exterior"),
+        ("Casa_Pance-p2-6-800x602.png", "11-zona-bar"),
+        ("Casa_Pance_Bello_Horizonte-p2-6-768x576.png", "12-kiosko-billar"),
+        ("Casa_Pance-p1-3-640x482.png", "13-entrada"),
+    ],
+    "casa-prados-del-norte": [
+        ("Casa_Prados_del_Norte-p1-4-1600x1204.png", "01-fachada"),
+        ("Casa_Prados_del_Norte-p2-9-1600x1204.png", "02-hall-segundo-piso"),
+        ("Casa_Prados_del_Norte-p2-7-1120x843.png", "03-cocina"),
+        ("Casa_Prados_del_Norte-p2-6-1120x747.png", "04-sala-tv"),
+        ("Casa_Prados_del_Norte-p1-3-1120x843.png", "05-estudio"),
+        ("Casa_Prados_del_Norte-p2-1-1120x843.png", "06-alcoba"),
+        ("Casa_Prados_del_Norte-p2-5-1120x843.png", "07-sala"),
+        ("Casa_Prados_del_Norte-p2-10-1120x843.png", "08-patio"),
+        ("Casa_Prados_del_Norte-p1-1-960x723.png", "09-bano-principal"),
+        ("Casa_Prados_del_Norte-p1-5-1120x843.png", "10-jacuzzi"),
+        ("Casa_Prados_del_Norte-p2-2-960x723.png", "11-biblioteca"),
+        ("Casa_Prados_del_Norte-p2-3-960x723.png", "12-estudio-segundo-piso"),
+    ],
+    "casa-bifamiliar-la-merced": [
+        ("Casa_Bi_-_La_Merced-p1-5-1600x1066.png", "01-fachada"),
+        ("Casa_Bi_-_La_Merced-p1-8-1120x630.png", "02-sala"),
+        ("Casa_Bi_-_La_Merced-p1-4-960x540.png", "03-sala-estar"),
+        ("Casa_Bi_-_La_Merced-p2-3-1600x900.png", "04-comedor"),
+        ("Casa_Bi_-_La_Merced-p1-3-960x540.png", "05-comedor-principal"),
+        ("Casa_Bi_-_La_Merced-p1-6-960x540.png", "06-cocina"),
+        ("Casa_Bi_-_La_Merced-p1-2-960x540.png", "07-escalera"),
+        ("Casa_Bi_-_La_Merced-p2-4-1120x630.png", "08-patio"),
+        ("Casa_Bi_-_La_Merced-p2-7-960x640.png", "09-sala-segundo-piso"),
+        ("Casa_Bi_-_La_Merced-p2-5-960x640.png", "10-habitacion"),
+        ("Casa_Bi_-_La_Merced-p2-6-960x640.png", "11-bano"),
+        ("Casa_Bi_-_La_Merced-p2-9-960x640.png", "12-garaje-patio"),
+    ],
+    "casa-la-flora": [
+        ("Casa_La_Flora_2-p1-2-1024x768.png", "01-fachada"),
+        ("Casa_La_Flora_2-p1-3-512x384.png", "02-sala"),
+        ("Casa_La_Flora_2-p1-4-512x384.png", "03-sala-comedor"),
+        ("Casa_La_Flora_2-p1-5-512x384.png", "04-espacio-tv"),
+        ("Casa_La_Flora_2-p1-6-512x384.png", "05-cocina"),
+        ("Casa_La_Flora_2-p2-2-1024x768.png", "06-habitacion"),
+        ("Casa_La_Flora_2-p2-3-512x384.png", "07-habitacion-principal"),
+        ("Casa_La_Flora_2-p2-4-512x384.png", "08-loft"),
+        ("Casa_La_Flora_2-p2-5-512x384.png", "09-loft-sala"),
+        ("Casa_La_Flora_2-p2-6-512x384.png", "10-terraza"),
+        ("Casa_La_Flora_2-p2-7-1024x768.png", "11-patio"),
+    ],
+    "casa-santa-monica": [
+        ("Casa_Santa_Mónica_Honey-p1-2-1600x1204.png", "01-fachada"),
+        ("Casa_Santa_Mónica_Honey-p1-3-576x768.png", "02-sala"),
+        ("Casa_Santa_Mónica_Honey-p1-4-512x384.png", "03-salon"),
+        ("Casa_Santa_Mónica_Honey-p2-2-1024x768.png", "04-cocina"),
+        ("Casa_Santa_Mónica_Honey-p2-3-512x384.png", "05-garaje"),
+        ("Casa_Santa_Mónica_Honey-p2-4-512x384.png", "06-patio"),
+        ("Casa_Santa_Mónica_Honey-p3-2-640x480.png", "07-habitacion"),
+        ("Casa_Santa_Mónica_Honey-p3-3-640x480.png", "08-habitacion-principal"),
+        ("Casa_Santa_Mónica_Honey-p3-4-640x480.png", "09-habitacion-suite"),
+        ("Casa_Santa_Mónica_Honey-p3-5-600x800.png", "10-bano"),
+        ("Casa_Santa_Mónica_Honey-p3-6-480x640.png", "11-patio-interior"),
+        ("Casa_Santa_Mónica_Honey-p3-7-512x384.png", "12-pasillo"),
+    ],
+}
+
 
 def procesar_nuevas(fotos_por_slug=FOTOS_NUEVAS, carpeta=NUEVAS) -> None:
     for slug, fotos in fotos_por_slug.items():
@@ -175,3 +278,4 @@ if __name__ == "__main__":
     procesar()
     procesar_nuevas()
     procesar_nuevas(FOTOS_NUEVAS2, NUEVAS2)
+    procesar_nuevas(FOTOS_NUEVAS3, NUEVAS3)

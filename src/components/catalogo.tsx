@@ -82,7 +82,7 @@ export function Catalogo() {
 
   const visibles = propiedades.filter(
     (p) =>
-      (operacion === "todas" || (operacion === "inversion" ? p.inversion : p.operacion === operacion)) &&
+      (operacion === "todas" || (operacion === "inversion" ? p.inversion : p.operacion === operacion || p.tambienOperacion === operacion)) &&
       (categoria === "todos" || categoriaDe(p.tipo) === categoria) &&
       (tipo === "todos" || p.tipo === tipo || p.tambien?.includes(tipo)),
   );

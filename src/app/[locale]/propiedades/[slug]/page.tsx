@@ -67,6 +67,9 @@ export default async function Ficha({ params }: PageProps<"/[locale]/propiedades
             </div>
             <div className="fade-up flex items-center gap-4 [animation-delay:0.6s]">
               <span className="eyebrow bg-cream px-3 py-1.5 text-night">{td(`operaciones.${p.operacion}`)}</span>
+              {p.tambienOperacion && (
+                <span className="eyebrow bg-cream px-3 py-1.5 text-night">{td(`operaciones.${p.tambienOperacion}`)}</span>
+              )}
               <p className="font-display text-3xl text-brass-light tabular">{precio}</p>
             </div>
           </div>

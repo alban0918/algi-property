@@ -22,6 +22,13 @@ const rutas = [
   "/propiedades/lote-palmira-las-mercedes",
   "/propiedades/locales-g-sur",
   "/propiedades/edificio-fatima",
+  "/propiedades/casa-la-morada",
+  "/propiedades/casa-condominio-las-mercedes",
+  "/propiedades/casa-pance-bello-horizonte",
+  "/propiedades/casa-prados-del-norte",
+  "/propiedades/casa-bifamiliar-la-merced",
+  "/propiedades/casa-la-flora",
+  "/propiedades/casa-santa-monica",
   "/contacto",
 ];
 

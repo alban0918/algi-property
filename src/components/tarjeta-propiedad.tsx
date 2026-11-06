@@ -24,6 +24,9 @@ export function TarjetaPropiedad({ p, prioridad = false }: { p: Propiedad; prior
         />
         <div className="absolute inset-x-0 top-0 flex gap-2 bg-gradient-to-b from-night/70 to-transparent p-4">
           <span className="eyebrow bg-cream px-3 py-1.5 text-night">{t(`operaciones.${p.operacion}`)}</span>
+          {p.tambienOperacion && (
+            <span className="eyebrow bg-cream px-3 py-1.5 text-night">{t(`operaciones.${p.tambienOperacion}`)}</span>
+          )}
           <span className="eyebrow border border-cream/70 px-3 py-1.5 text-cream">{t(`tipos.${p.tipo}`)}</span>
         </div>
       </div>

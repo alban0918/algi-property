@@ -39,6 +39,10 @@ const rutas = [
   "/propiedades/apartamento-santa-rita-cuarto-piso",
   "/propiedades/apartaestudio-miraflores-piso-3",
   "/propiedades/penthouse-las-ceibas",
+  "/propiedades/finca-lago-calima",
+  "/propiedades/finca-dapa-vereda-la-olga",
+  "/propiedades/finca-el-carmen",
+  "/propiedades/finca-santa-elena",
   "/contacto",
 ];
 

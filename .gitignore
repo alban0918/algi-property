@@ -53,3 +53,4 @@ next-env.d.ts
 
 # video de lanzamiento (se genera localmente)
 /brag-output/
+/brag-output-*/

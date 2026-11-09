@@ -29,6 +29,16 @@ const rutas = [
   "/propiedades/casa-bifamiliar-la-merced",
   "/propiedades/casa-la-flora",
   "/propiedades/casa-santa-monica",
+  "/propiedades/apartamento-castillo-grande-cartagena",
+  "/propiedades/apartamento-miraflores-segundo-piso",
+  "/propiedades/apartamento-prados-del-norte-piso-8",
+  "/propiedades/apartamento-santa-rita-riverside",
+  "/propiedades/apartamento-santa-monica-segundo-piso",
+  "/propiedades/apartamento-mont-bre-bellavista",
+  "/propiedades/apartamento-santa-rita-piso-7",
+  "/propiedades/apartamento-santa-rita-cuarto-piso",
+  "/propiedades/apartaestudio-miraflores-piso-3",
+  "/propiedades/penthouse-las-ceibas",
   "/contacto",
 ];
 

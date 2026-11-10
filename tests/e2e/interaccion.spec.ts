@@ -23,14 +23,14 @@ test.describe("selector de idioma", () => {
 test.describe("catálogo de propiedades", () => {
   test("filtra por operación, categoría y tipo comercial, y lo refleja en la URL", async ({ page }) => {
     await page.goto("/es/propiedades");
-    await expect(page.getByText("34 propiedades")).toBeVisible();
+    await expect(page.getByText("35 propiedades")).toBeVisible();
     // El filtro por tipo solo aparece al elegir una categoría.
     await expect(page.getByRole("button", { name: "Lotes", exact: true })).toHaveCount(0);
     await expect(page.getByRole("button", { name: "Casas", exact: true })).toHaveCount(0);
 
     await page.getByRole("button", { name: "Venta", exact: true }).click();
     await expect(page).toHaveURL(/operacion=venta/);
-    await expect(page.getByText("32 propiedades")).toBeVisible();
+    await expect(page.getByText("33 propiedades")).toBeVisible();
 
     await page.getByRole("button", { name: "Comercial", exact: true }).click();
     await expect(page).toHaveURL(/categoria=comercial/);
@@ -45,7 +45,7 @@ test.describe("catálogo de propiedades", () => {
     await expect(page.getByText("No hay propiedades con esos filtros.")).toBeVisible();
 
     await page.getByRole("button", { name: "Quitar filtros" }).click();
-    await expect(page.getByText("34 propiedades")).toBeVisible();
+    await expect(page.getByText("35 propiedades")).toBeVisible();
     await expect(page).not.toHaveURL(/operacion=|categoria=|tipo=/);
   });
 
@@ -53,14 +53,14 @@ test.describe("catálogo de propiedades", () => {
     await page.goto("/es/propiedades");
     await page.getByRole("button", { name: "Residencial", exact: true }).click();
     await expect(page).toHaveURL(/categoria=residencial/);
-    await expect(page.getByText("24 propiedades")).toBeVisible();
+    await expect(page.getByText("25 propiedades")).toBeVisible();
     for (const nombre of ["Casas", "Apartamentos", "Aparta estudios", "Fincas"]) {
       await expect(page.getByRole("button", { name: nombre, exact: true })).toBeVisible();
     }
 
     await page.getByRole("button", { name: "Casas", exact: true }).click();
     await expect(page).toHaveURL(/tipo=casa/);
-    await expect(page.getByText("8 propiedades")).toBeVisible();
+    await expect(page.getByText("9 propiedades")).toBeVisible();
     await expect(page.getByRole("heading", { name: "Casa Los Álamos" })).toBeVisible();
 
     await page.getByRole("button", { name: "Fincas", exact: true }).click();
@@ -102,17 +102,17 @@ test.describe("catálogo de propiedades", () => {
     await page.getByRole("button", { name: "Residencial", exact: true }).click();
     await expect(page).toHaveURL(/categoria=residencial/);
     await expect(page).not.toHaveURL(/tipo=/);
-    await expect(page.getByText("24 propiedades")).toBeVisible();
+    await expect(page.getByText("25 propiedades")).toBeVisible();
     await expect(page.getByRole("button", { name: "Lotes", exact: true })).toHaveCount(0);
     await expect(page.getByRole("button", { name: "Casas", exact: true })).toBeVisible();
   });
 
   test("una URL con filtros muestra el resultado filtrado", async ({ page }) => {
     await page.goto("/en/propiedades?categoria=residential");
-    await expect(page.getByText("34 properties")).toBeVisible();
+    await expect(page.getByText("35 properties")).toBeVisible();
 
     await page.goto("/en/propiedades?categoria=residencial");
-    await expect(page.getByText("24 properties")).toBeVisible();
+    await expect(page.getByText("25 properties")).toBeVisible();
     await expect(page.getByRole("heading", { name: "Los Álamos House" })).toBeVisible();
 
     await page.goto("/en/propiedades?categoria=comercial&tipo=oficina");

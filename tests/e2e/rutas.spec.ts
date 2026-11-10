@@ -43,6 +43,7 @@ const rutas = [
   "/propiedades/finca-dapa-vereda-la-olga",
   "/propiedades/finca-el-carmen",
   "/propiedades/finca-santa-elena",
+  "/propiedades/casa-la-morada-vilas-verdes",
   "/contacto",
 ];
 

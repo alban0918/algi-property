@@ -1,10 +1,25 @@
 /**
- * Ruta pública de la ficha técnica en PDF de un inmueble. La usan el botón de descarga y
- * scripts/fichas-pdf.mjs, que genera los archivos. El nombre del archivo es descriptivo porque
- * es el que ve quien descarga (el servidor lo envía en Content-Disposition).
- * Sin importaciones: el script la carga directamente con Node.
+ * Ubicación y nombre de descarga de las fichas técnicas en PDF.
+ *
+ * Los PDF se generan en cada build (scripts/fichas-pdf.mjs) dentro de una carpeta privada,
+ * fuera de `public/`: solo se descargan con un enlace firmado que entrega /api/interesados
+ * después del formulario (ver src/app/api/ficha/route.ts).
+ * Sin importaciones con alias: el script de generación lo carga directamente con Node.
  */
-export function rutaFichaPdf(idioma: "es" | "en", slug: string): string {
-  const prefijo = idioma === "es" ? "ALGI-Property-ficha-tecnica" : "ALGI-Property-fact-sheet";
-  return `/fichas/${idioma}/${prefijo}-${slug}.pdf`;
+export const CARPETA_FICHAS = "fichas-privadas";
+
+/** Ruta del PDF relativa a la carpeta privada. */
+export function archivoFicha(idioma: "es" | "en", slug: string): string {
+  return `${idioma}/${slug}.pdf`;
+}
+
+/** Nombre con el que se guarda el archivo al descargarlo. */
+export function nombreDescarga(idioma: "es" | "en", nombreInmueble: string): string {
+  const base = idioma === "es" ? "Ficha técnica" : "Fact sheet";
+  return `${base} - ${nombreInmueble.replace(/[\\/:*?"<>|]/g, "")} - ALGI Property.pdf`;
+}
+
+/** Variante sin tildes ni espacios para navegadores que no leen el nombre en UTF-8. */
+export function nombreDescargaAscii(idioma: "es" | "en", slug: string): string {
+  return `ALGI-Property-${idioma === "es" ? "ficha-tecnica" : "fact-sheet"}-${slug}.pdf`;
 }

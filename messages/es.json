@@ -69,7 +69,8 @@
     "contacto": "Contacto",
     "derechos": "Todos los derechos reservados.",
     "proyecto": "Sitio creado como proyecto de portafolio con contenido de ALGI Property.",
-    "fotos": "Fotos"
+    "fotos": "Fotos",
+    "privacidad": "Política de datos"
   },
   "cta": {
     "titulo": "Hablemos de tu próxima",
@@ -142,6 +143,35 @@
     "aviso": "Precios y disponibilidad sujetos a cambios sin previo aviso. Ficha generada el {fecha}.",
     "pagina": "Página {n} de {total}"
   },
+  "descarga": {
+    "eyebrow": "Ficha técnica en PDF",
+    "intro": "Déjanos tus datos para descargarla. Un asesor de ALGI Property puede escribirte para resolver dudas o agendar una visita.",
+    "nombre": "Nombre",
+    "telefono": "Teléfono o WhatsApp",
+    "indicativo": "Indicativo",
+    "telefonoAyuda": "Si eliges Otro país, escribe el número completo con +.",
+    "correo": "Correo (opcional)",
+    "autorizacionAntes": "Autorizo a ALGI Property a tratar mis datos para contactarme sobre este inmueble y ofrecerme asesoría inmobiliaria, según la",
+    "autorizacionEnlace": "política de tratamiento de datos",
+    "enviar": "Descargar ficha",
+    "enviando": "Preparando la ficha",
+    "privado": "No vendemos ni cedemos tus datos.",
+    "cerrar": "Cerrar",
+    "errores": {
+      "nombre": "Escribe tu nombre.",
+      "telefono": "Escribe un teléfono válido, con su indicativo.",
+      "correo": "Revisa el correo: parece incompleto.",
+      "autorizacion": "Para descargar la ficha necesitamos tu autorización.",
+      "rapido": "No pudimos enviar el formulario. Espera un segundo e inténtalo de nuevo.",
+      "frecuencia": "Hiciste varias solicitudes seguidas. Espera unos minutos e inténtalo de nuevo.",
+      "servidor": "No pudimos preparar la ficha. Inténtalo de nuevo en un momento o escríbenos por WhatsApp.",
+      "whatsapp": "Escribir por WhatsApp"
+    },
+    "listoEyebrow": "Listo",
+    "listoTitulo": "Tu ficha se está descargando.",
+    "listoTexto": "Gracias, {nombre}. Si la descarga no empieza en unos segundos, usa este botón.",
+    "descargarOtraVez": "Descargar de nuevo"
+  },
   "contacto": {
     "titulo": "Hablemos",
     "tituloCursiva": "cuando quieras.",
@@ -173,7 +203,8 @@
         "invertirFlorida": "Invertir en la Florida",
         "asesoria": "Asesoría financiera, legal o tributaria",
         "otro": "Otro tema"
-      }
+      },
+      "politica": "Política de tratamiento de datos"
     }
   },
   "extra": {

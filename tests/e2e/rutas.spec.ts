@@ -45,6 +45,7 @@ const rutas = [
   "/propiedades/finca-santa-elena",
   "/propiedades/casa-la-morada-vilas-verdes",
   "/contacto",
+  "/privacidad",
 ];
 
 for (const idioma of idiomas) {

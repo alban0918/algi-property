@@ -32,6 +32,7 @@ yarn-error.log*
 
 # env files (can opt-in for committing if needed)
 .env*
+!.env.example
 
 # vercel
 .vercel
@@ -55,5 +56,7 @@ next-env.d.ts
 /brag-output/
 /brag-output-*/
 
-# fichas técnicas en PDF (se generan en cada build con npm run fichas)
+# fichas técnicas en PDF (se generan en cada build con npm run fichas; privadas, fuera de public/)
+/fichas-privadas/
 /public/fichas/
+.neon

@@ -38,6 +38,8 @@ const nextConfig: NextConfig = {
   cacheComponents: true,
   partialPrefetching: true,
   poweredByHeader: false,
+  // Las fichas PDF se generan antes del build en una carpeta privada y solo las sirve /api/ficha.
+  outputFileTracingIncludes: { "/api/ficha": ["./fichas-privadas/**/*"] },
   images: { formats: ["image/avif", "image/webp"] },
   async headers() {
     return [{ source: "/:path*", headers: cabecerasSeguridad }];

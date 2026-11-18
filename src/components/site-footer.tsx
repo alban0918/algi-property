@@ -62,6 +62,11 @@ export async function SiteFooter({ locale }: { locale: string }) {
           </p>
           <p>{t("pie.proyecto")}</p>
           <p>
+            <Link href="/privacidad" className="underline-offset-2 hover:text-brass-light hover:underline">
+              {t("pie.privacidad")}
+            </Link>
+          </p>
+          <p>
             {t("pie.fotos")}:{" "}
             {creditosFotos.map((c, i) => (
               <span key={c.archivo}>

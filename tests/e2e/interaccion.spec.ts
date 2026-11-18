@@ -128,7 +128,7 @@ test.describe("ficha de inmueble", () => {
   test("la galería se amplía, navega con el teclado y se cierra con Escape", async ({ page }) => {
     await page.goto("/es/propiedades/edificio-granada");
     await page.getByRole("button", { name: /Ampliar foto/ }).click();
-    const dialogo = page.locator("dialog");
+    const dialogo = page.locator("dialog:not(.descarga)");
     await expect(dialogo).toBeVisible();
     await expect(dialogo.getByText("Foto 1 de 5")).toBeVisible();
 
@@ -149,18 +149,57 @@ test.describe("ficha de inmueble", () => {
     expect(decodeURIComponent(href)).toContain("Casa Los Álamos");
   });
 
-  test("el botón de ficha técnica descarga el PDF del inmueble en su idioma", async ({ page }) => {
+  test("la descarga de la ficha técnica pide los datos y entrega el PDF", async ({ page }) => {
+    test.skip(!!process.env.E2E_BASE_URL, "Registra un interesado: solo contra el servidor local de pruebas.");
     await page.goto("/es/propiedades/casa-los-alamos");
-    const enlace = page.getByRole("link", { name: "Descargar ficha técnica" });
-    await expect(enlace).toHaveAttribute("href", "/fichas/es/ALGI-Property-ficha-tecnica-casa-los-alamos.pdf");
-    const [descarga] = await Promise.all([page.waitForEvent("download"), enlace.click()]);
-    expect(descarga.suggestedFilename()).toBe("ALGI-Property-ficha-tecnica-casa-los-alamos.pdf");
+    await page.getByRole("button", { name: "Descargar ficha técnica" }).click();
 
+    const ventana = page.getByRole("dialog", { name: "Casa Los Álamos" });
+    await expect(ventana).toBeVisible();
+    await expect(ventana.getByLabel("Nombre")).toBeFocused();
+
+    // Sin datos: marca los obligatorios y enfoca el primero.
+    await ventana.getByRole("button", { name: "Descargar ficha" }).click();
+    await expect(ventana.getByText("Escribe tu nombre.")).toBeVisible();
+    await expect(ventana.getByText("Escribe un teléfono válido, con su indicativo.")).toBeVisible();
+    await expect(ventana.getByText("Para descargar la ficha necesitamos tu autorización.")).toBeVisible();
+    await expect(ventana.getByLabel("Nombre")).toBeFocused();
+
+    // La casilla de autorización nunca viene marcada.
+    const casilla = ventana.getByRole("checkbox");
+    await expect(casilla).not.toBeChecked();
+    await expect(ventana.getByRole("link", { name: "política de tratamiento de datos" })).toHaveAttribute("href", "/es/privacidad");
+
+    await ventana.getByLabel("Nombre").fill("Laura Gómez");
+    await ventana.getByRole("textbox", { name: "Teléfono o WhatsApp" }).fill("300 123 4567");
+    await casilla.check();
+    await page.waitForTimeout(1600); // el servidor rechaza envíos más rápidos que una persona
+    const [descarga] = await Promise.all([
+      page.waitForEvent("download"),
+      ventana.getByRole("button", { name: "Descargar ficha" }).click(),
+    ]);
+    expect(descarga.suggestedFilename()).toBe("Ficha técnica - Casa Los Álamos - ALGI Property.pdf");
+    // Tras la descarga la ventana cambia de título: se busca por su clase.
+    const enviada = page.locator("dialog.descarga");
+    await expect(enviada.getByRole("heading", { name: "Tu ficha se está descargando." })).toBeVisible();
+    await expect(enviada.getByRole("heading", { name: "Tu ficha se está descargando." })).toBeFocused();
+
+    // Al volver a abrirla, recuerda los datos pero no la autorización.
+    await page.keyboard.press("Escape");
+    await expect(enviada).toBeHidden();
+    await page.getByRole("button", { name: "Descargar ficha técnica" }).click();
+    await expect(ventana.getByLabel("Nombre")).toHaveValue("Laura Gómez");
+    await expect(ventana.getByRole("checkbox")).not.toBeChecked();
+  });
+
+  test("la ventana de descarga está en inglés en la versión en inglés", async ({ page }) => {
     await page.goto("/en/propiedades/casa-los-alamos");
-    await expect(page.getByRole("link", { name: "Download fact sheet" })).toHaveAttribute(
-      "href",
-      "/fichas/en/ALGI-Property-fact-sheet-casa-los-alamos.pdf",
-    );
+    await page.getByRole("button", { name: "Download fact sheet" }).click();
+    const ventana = page.getByRole("dialog", { name: "Los Álamos House" });
+    await expect(ventana.getByText("PDF fact sheet")).toBeVisible();
+    await expect(ventana.getByRole("combobox", { name: "Country code" })).toHaveValue("US");
+    await ventana.getByRole("button", { name: "Close" }).click();
+    await expect(ventana).toBeHidden();
   });
 });
 

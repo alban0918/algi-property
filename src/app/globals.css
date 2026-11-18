@@ -201,6 +201,19 @@ dialog {
   overscroll-behavior: contain;
 }
 
+/* Ventana de descarga de la ficha: entra subiendo y el velo aparece con un fundido. */
+@keyframes velo-in {
+  from {
+    opacity: 0;
+  }
+}
+.descarga[open] {
+  animation: fade-up 0.5s var(--ease-out-expo) both;
+}
+.descarga[open]::backdrop {
+  animation: velo-in 0.4s var(--ease-out-expo) both;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

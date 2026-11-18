@@ -2,13 +2,12 @@
 
 import { useState, type FormEvent } from "react";
 import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 import { contacto, enlaceWhatsApp } from "@/data/contacto";
 import { cn } from "@/lib/cn";
+import { campo } from "@/components/ui/campo";
 
 const intereses = ["comprar", "vender", "alquilar", "invertirCali", "invertirFlorida", "asesoria", "otro"] as const;
-
-const campo =
-  "w-full border-0 border-b border-ink/40 bg-transparent py-3 text-[1rem] text-ink placeholder:text-taupe/70 focus:border-brass-deep focus:shadow-[0_1px_0_0_var(--color-brass-deep)] focus:outline-none";
 
 /**
  * Formulario sin servidor: compone el mensaje y abre WhatsApp (o el correo) con el texto listo para enviar.
@@ -120,7 +119,12 @@ export function FormularioContacto() {
           {t("enviarCorreo")}
         </button>
       </div>
-      <p className="max-w-prose text-sm text-taupe">{t("ayuda")}</p>
+      <p className="max-w-prose text-sm text-taupe">
+        {t("ayuda")}{" "}
+        <Link href="/privacidad" className="text-ink underline decoration-brass underline-offset-4 transition-colors hover:text-brass-deep">
+          {t("politica")}
+        </Link>
+      </p>
     </form>
   );
 }

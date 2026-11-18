@@ -69,7 +69,8 @@
     "contacto": "Contact",
     "derechos": "All rights reserved.",
     "proyecto": "Site built as a portfolio project using ALGI Property content.",
-    "fotos": "Photos"
+    "fotos": "Photos",
+    "privacidad": "Data policy"
   },
   "cta": {
     "titulo": "Let’s talk about your next",
@@ -142,6 +143,35 @@
     "aviso": "Prices and availability subject to change without notice. Fact sheet generated on {fecha}.",
     "pagina": "Page {n} of {total}"
   },
+  "descarga": {
+    "eyebrow": "PDF fact sheet",
+    "intro": "Leave your details to download it. An ALGI Property advisor may contact you to answer questions or arrange a viewing.",
+    "nombre": "Name",
+    "telefono": "Phone or WhatsApp",
+    "indicativo": "Country code",
+    "telefonoAyuda": "If you choose Other country, type the full number with +.",
+    "correo": "Email (optional)",
+    "autorizacionAntes": "I authorise ALGI Property to process my data to contact me about this property and offer me real estate advice, under the",
+    "autorizacionEnlace": "data processing policy",
+    "enviar": "Download fact sheet",
+    "enviando": "Preparing the fact sheet",
+    "privado": "We do not sell or hand over your data.",
+    "cerrar": "Close",
+    "errores": {
+      "nombre": "Enter your name.",
+      "telefono": "Enter a valid phone number with its country code.",
+      "correo": "Check the email: it looks incomplete.",
+      "autorizacion": "We need your consent to download the fact sheet.",
+      "rapido": "We could not send the form. Wait a second and try again.",
+      "frecuencia": "You sent several requests in a row. Wait a few minutes and try again.",
+      "servidor": "We could not prepare the fact sheet. Try again in a moment or message us on WhatsApp.",
+      "whatsapp": "Message us on WhatsApp"
+    },
+    "listoEyebrow": "Done",
+    "listoTitulo": "Your fact sheet is downloading.",
+    "listoTexto": "Thank you, {nombre}. If the download does not start in a few seconds, use this button.",
+    "descargarOtraVez": "Download again"
+  },
   "contacto": {
     "titulo": "Let’s talk",
     "tituloCursiva": "whenever you like.",
@@ -173,7 +203,8 @@
         "invertirFlorida": "Investing in Florida",
         "asesoria": "Financial, legal or tax advice",
         "otro": "Something else"
-      }
+      },
+      "politica": "Data processing policy"
     }
   },
   "extra": {

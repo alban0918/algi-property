@@ -29,6 +29,11 @@ const estilos: Record<Variante, Record<Superficie, string>> = {
   },
 };
 
+/** Clases de un botón de marca, para usarlas también en elementos <button>. */
+export function clasesBoton(variante: Variante = "solido", superficie: Superficie = "claro", className?: string): string {
+  return cn(base, estilos[variante][superficie], className);
+}
+
 /** Botón de marca. Se renderiza como enlace porque en este sitio cada acción navega o abre un canal de contacto. */
 export function Button({
   variante = "solido",
@@ -38,7 +43,7 @@ export function Button({
   ...resto
 }: ButtonProps) {
   return (
-    <a className={cn(base, estilos[variante][superficie], className)} {...resto}>
+    <a className={clasesBoton(variante, superficie, className)} {...resto}>
       {children}
       {variante === "enlace" && <Arrow className="group-hover:translate-x-1" />}
     </a>

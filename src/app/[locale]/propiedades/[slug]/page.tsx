@@ -3,15 +3,14 @@ import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { routing } from "@/i18n/routing";
 import { CtaContacto } from "@/components/cta-contacto";
+import { DescargaFicha } from "@/components/descarga-ficha";
 import { GaleriaFicha } from "@/components/galeria-ficha";
 import { Reveal } from "@/components/reveal";
 import { TarjetaPropiedad } from "@/components/tarjeta-propiedad";
 import { Contenedor, Lista } from "@/components/ui/bloques";
-import { IconoDescarga } from "@/components/ui/arrow";
 import { Button } from "@/components/ui/button";
 import { contacto, enlaceWhatsApp } from "@/data/contacto";
 import { obtenerPropiedad, propiedades } from "@/data/propiedades";
-import { rutaFichaPdf } from "@/lib/ficha-pdf";
 import { formatearPrecio } from "@/lib/formato";
 import { fijarIdioma, metadatos } from "@/lib/pagina";
 
@@ -114,17 +113,14 @@ export default async function Ficha({ params }: PageProps<"/[locale]/propiedades
                 <Button href={enlaceWhatsApp(mensaje)} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto lg:w-full">
                   {t("consultar")}
                 </Button>
-                {/* PDF generado en cada build por scripts/fichas-pdf.mjs */}
-                <Button
-                  href={rutaFichaPdf(locale, p.slug)}
-                  download
-                  type="application/pdf"
-                  variante="contorno"
+                {/* Pide los datos del interesado y entrega el PDF con un enlace temporal. */}
+                <DescargaFicha
+                  slug={p.slug}
+                  nombre={p.nombre[locale]}
+                  mensajeWhatsApp={mensaje}
+                  etiqueta={t("descargar")}
                   className="w-full sm:w-auto lg:w-full"
-                >
-                  <IconoDescarga />
-                  {t("descargar")}
-                </Button>
+                />
               </div>
               <a
                 href={`mailto:${contacto.correo}?subject=${encodeURIComponent(p.nombre[locale])}`}

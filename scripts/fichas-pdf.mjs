@@ -1,6 +1,7 @@
 /**
  * Genera la ficha técnica en PDF de cada inmueble, en español e inglés:
- * public/fichas/{idioma}/ALGI-Property-…-{slug}.pdf (ver src/lib/ficha-pdf.ts)
+ * fichas-privadas/{idioma}/{slug}.pdf, carpeta privada fuera de public/ (ver src/lib/ficha-pdf.ts):
+ * se descargan solo con el enlace firmado que entrega el formulario.
  *
  * Se ejecuta solo antes de cada build (`prebuild`), así que toda propiedad nueva
  * en src/data/propiedades.ts tiene su ficha sin pasos manuales. Uso directo: npm run fichas
@@ -18,12 +19,12 @@ import sharp from "sharp";
 
 const RAIZ = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const PUBLICO = path.join(RAIZ, "public");
-const SALIDA = path.join(PUBLICO, "fichas");
+const { CARPETA_FICHAS, archivoFicha } = await import("../src/lib/ficha-pdf.ts");
+const SALIDA = path.join(RAIZ, CARPETA_FICHAS);
 
 const { propiedades } = await import("../src/data/propiedades.ts");
 const { contacto } = await import("../src/data/contacto.ts");
 const { formatearPrecio } = await import("../src/lib/formato.ts");
-const { rutaFichaPdf } = await import("../src/lib/ficha-pdf.ts");
 const urlSitio = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.algiproperty.com").replace(/\/$/, "");
 const mensajes = {
   es: JSON.parse(await fs.readFile(path.join(RAIZ, "messages/es.json"), "utf8")),
@@ -467,12 +468,12 @@ for (const p of propiedades.filter((x) => !solo || solo.includes(x.slug))) {
       }
     }
     if (contarPaginas(pdf) > 2) avisos.push(`${p.slug} (${idioma}): ocupa ${contarPaginas(pdf)} páginas`);
-    const destino = path.join(PUBLICO, rutaFichaPdf(idioma, p.slug));
+    const destino = path.join(SALIDA, archivoFicha(idioma, p.slug));
     await fs.mkdir(path.dirname(destino), { recursive: true });
     await fs.writeFile(destino, pdf);
     total++;
   }
 }
 
-console.log(`Fichas PDF: ${total} archivos en public/fichas (${((Date.now() - inicio) / 1000).toFixed(1)} s)`);
+console.log(`Fichas PDF: ${total} archivos en ${CARPETA_FICHAS}/ (${((Date.now() - inicio) / 1000).toFixed(1)} s)`);
 for (const a of avisos) console.warn(`  Aviso de calidad · ${a}`);

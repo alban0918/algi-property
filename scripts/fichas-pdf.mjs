@@ -1,6 +1,6 @@
 /**
  * Genera la ficha técnica en PDF de cada inmueble, en español e inglés:
- * public/fichas/{idioma}/{slug}.pdf
+ * public/fichas/{idioma}/ALGI-Property-…-{slug}.pdf (ver src/lib/ficha-pdf.ts)
  *
  * Se ejecuta solo antes de cada build (`prebuild`), así que toda propiedad nueva
  * en src/data/propiedades.ts tiene su ficha sin pasos manuales. Uso directo: npm run fichas
@@ -23,6 +23,7 @@ const SALIDA = path.join(PUBLICO, "fichas");
 const { propiedades } = await import("../src/data/propiedades.ts");
 const { contacto } = await import("../src/data/contacto.ts");
 const { formatearPrecio } = await import("../src/lib/formato.ts");
+const { rutaFichaPdf } = await import("../src/lib/ficha-pdf.ts");
 const urlSitio = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.algiproperty.com").replace(/\/$/, "");
 const mensajes = {
   es: JSON.parse(await fs.readFile(path.join(RAIZ, "messages/es.json"), "utf8")),
@@ -466,7 +467,7 @@ for (const p of propiedades.filter((x) => !solo || solo.includes(x.slug))) {
       }
     }
     if (contarPaginas(pdf) > 2) avisos.push(`${p.slug} (${idioma}): ocupa ${contarPaginas(pdf)} páginas`);
-    const destino = path.join(SALIDA, idioma, `${p.slug}.pdf`);
+    const destino = path.join(PUBLICO, rutaFichaPdf(idioma, p.slug));
     await fs.mkdir(path.dirname(destino), { recursive: true });
     await fs.writeFile(destino, pdf);
     total++;

@@ -11,6 +11,7 @@ import { IconoDescarga } from "@/components/ui/arrow";
 import { Button } from "@/components/ui/button";
 import { contacto, enlaceWhatsApp } from "@/data/contacto";
 import { obtenerPropiedad, propiedades } from "@/data/propiedades";
+import { rutaFichaPdf } from "@/lib/ficha-pdf";
 import { formatearPrecio } from "@/lib/formato";
 import { fijarIdioma, metadatos } from "@/lib/pagina";
 
@@ -115,8 +116,8 @@ export default async function Ficha({ params }: PageProps<"/[locale]/propiedades
                 </Button>
                 {/* PDF generado en cada build por scripts/fichas-pdf.mjs */}
                 <Button
-                  href={`/fichas/${locale}/${p.slug}.pdf`}
-                  download={`${t("descargar")} - ${p.nombre[locale]} - ALGI Property.pdf`}
+                  href={rutaFichaPdf(locale, p.slug)}
+                  download
                   type="application/pdf"
                   variante="contorno"
                   className="w-full sm:w-auto lg:w-full"

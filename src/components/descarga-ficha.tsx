@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState, type FormEvent } from "react";
+import { useEffect, useRef, useState, type FormEvent } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import type { Idioma } from "@/data/propiedades";
@@ -75,6 +75,14 @@ export function DescargaFicha({ slug, nombre, mensajeWhatsApp, etiqueta, classNa
   const [errorGeneral, setErrorGeneral] = useState<ErrorGeneral | null>(null);
   const [listo, setListo] = useState<{ enlace: string; nombre: string } | null>(null);
 
+  // El foco va al nombre al abrir la ventana, y al titular de confirmación cuando la ficha está lista.
+  useEffect(() => {
+    if (apertura > 0) formulario.current?.querySelector<HTMLInputElement>("[name=\"nombre\"]")?.focus();
+  }, [apertura]);
+  useEffect(() => {
+    if (listo) tituloListo.current?.focus();
+  }, [listo]);
+
   function abrir() {
     const g = leerGuardado();
     setInicial(g);
@@ -136,7 +144,6 @@ export function DescargaFicha({ slug, nombre, mensajeWhatsApp, etiqueta, classNa
         guardar({ nombre: v.datos.nombre, pais, telefono: entrada.telefono.trim(), correo: entrada.correo.trim() });
         setListo({ enlace: j.enlace, nombre: v.datos.nombre.split(" ")[0] });
         window.location.assign(j.enlace);
-        requestAnimationFrame(() => tituloListo.current?.focus());
       } else if (r.status === 422 && j?.campos?.length) {
         setErrores(j.campos);
         enfocarPrimerError(j.campos);
@@ -229,7 +236,6 @@ export function DescargaFicha({ slug, nombre, mensajeWhatsApp, etiqueta, classNa
                     autoComplete="name"
                     required
                     maxLength={80}
-                    autoFocus
                     defaultValue={inicial?.nombre ?? ""}
                     aria-invalid={tieneError("nombre") || undefined}
                     aria-describedby={tieneError("nombre") ? `df-e-nombre-${slug}` : undefined}

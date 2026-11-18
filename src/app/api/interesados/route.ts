@@ -24,6 +24,12 @@ function error(codigo: Codigo, estado: number, campos?: string[]) {
   return Response.json({ ok: false, codigo, campos }, { status: estado, headers: { "Cache-Control": "no-store" } });
 }
 
+/** Mensaje de error apto para los registros: nunca incluye cadenas de conexión ni sus contraseñas. */
+function mensajeSeguro(e: unknown): string {
+  const m = e instanceof Error ? e.message : String(e);
+  return m.replace(/postgres(ql)?:\/\/[^\s"']+/gi, "[conexión oculta]");
+}
+
 const texto = (v: unknown) => (typeof v === "string" ? v : "");
 
 export async function POST(request: Request) {
@@ -77,12 +83,12 @@ export async function POST(request: Request) {
       if (await superaLimite(cfg.baseDatos, huellaIp(cfg.secreto, ip))) return error("frecuencia", 429);
     } catch (e) {
       // Si el límite no se puede consultar, se sigue: es mejor un posible spam que perder un interesado.
-      console.error("[interesados] No se pudo consultar el límite:", (e as Error).message);
+      console.error("[interesados] No se pudo consultar el límite:", mensajeSeguro(e));
     }
     try {
       id = await guardarInteresado(cfg.baseDatos, datos);
     } catch (e) {
-      console.error("[interesados] No se pudo guardar:", (e as Error).message);
+      console.error("[interesados] No se pudo guardar:", mensajeSeguro(e));
     }
   }
 
@@ -98,7 +104,7 @@ export async function POST(request: Request) {
       avisado = true;
       if (id !== null && cfg.baseDatos) await marcarAvisoEnviado(cfg.baseDatos, id).catch(() => {});
     } catch (e) {
-      console.error("[interesados] No se pudo enviar el aviso:", (e as Error).message);
+      console.error("[interesados] No se pudo enviar el aviso:", mensajeSeguro(e));
     }
   }
 

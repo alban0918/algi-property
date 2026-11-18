@@ -116,6 +116,7 @@
     "caracteristicas": "Features",
     "datos": "Key facts",
     "consultar": "Enquire on WhatsApp",
+    "descargar": "Download fact sheet",
     "otras": "Other properties",
     "miniaturas": "Property photos",
     "fotoN": "Photo {n} of {total}",
@@ -125,6 +126,21 @@
     "siguiente": "Next",
     "ilustrativa": "Illustrative image",
     "mensajeWhatsApp": "Hello, I’m interested in {nombre} and would like more information."
+  },
+  "fichaPdf": {
+    "titulo": "Fact sheet",
+    "pais": "Colombia",
+    "y": " and ",
+    "precio": "Price",
+    "descripcion": "Description",
+    "galeria": "Gallery",
+    "contactoTitulo": "Book a viewing",
+    "contactoTexto": "Message us and an ALGI PROPERTY advisor will reply, at any hour.",
+    "correo": "Email",
+    "web": "Web",
+    "qr": "Scan to see all the photos",
+    "aviso": "Prices and availability subject to change without notice. Fact sheet generated on {fecha}.",
+    "pagina": "Page {n} of {total}"
   },
   "contacto": {
     "titulo": "Let’s talk",

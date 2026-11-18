@@ -25,6 +25,8 @@ export interface Foto {
   alt: Texto;
   /** Imagen generada o recreada, no una foto actual del inmueble. */
   ilustrativa?: boolean;
+  /** `false` para no usarla en la ficha técnica en PDF (por ejemplo, si se ve borrosa impresa). */
+  ficha?: boolean;
 }
 
 export interface Propiedad {
@@ -740,7 +742,7 @@ export const propiedades: Propiedad[] = [
       { archivo: `${base}/casa-pance-bello-horizonte/09-corredor-piscina.webp`, alt: { es: "Corredor de madera junto a la piscina", en: "Timber-roofed walkway by the pool" } },
       { archivo: `${base}/casa-pance-bello-horizonte/10-comedor-exterior.webp`, alt: { es: "Comedor exterior frente a la piscina", en: "Outdoor dining area facing the pool" } },
       { archivo: `${base}/casa-pance-bello-horizonte/11-zona-bar.webp`, alt: { es: "Zona de bar y mesas exteriores", en: "Bar area and outdoor tables" } },
-      { archivo: `${base}/casa-pance-bello-horizonte/12-kiosco-billar.webp`, alt: { es: "Kiosco con mesa de billar", en: "Gazebo with a pool table" } },
+      { archivo: `${base}/casa-pance-bello-horizonte/12-kiosko-billar.webp`, alt: { es: "Kiosco con mesa de billar", en: "Gazebo with a pool table" } },
       { archivo: `${base}/casa-pance-bello-horizonte/13-entrada.webp`, alt: { es: "Entrada con ladrillo y plantas", en: "Brick entrance with plants" } },
     ],
   },

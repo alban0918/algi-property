@@ -116,6 +116,7 @@
     "caracteristicas": "Características",
     "datos": "Datos clave",
     "consultar": "Consultar por WhatsApp",
+    "descargar": "Descargar ficha técnica",
     "otras": "Otras propiedades",
     "miniaturas": "Fotos del inmueble",
     "fotoN": "Foto {n} de {total}",
@@ -125,6 +126,21 @@
     "siguiente": "Siguiente",
     "ilustrativa": "Imagen ilustrativa",
     "mensajeWhatsApp": "Hola, me interesa {nombre} y quisiera recibir más información."
+  },
+  "fichaPdf": {
+    "titulo": "Ficha técnica",
+    "pais": "Colombia",
+    "y": " y ",
+    "precio": "Precio",
+    "descripcion": "Descripción",
+    "galeria": "Galería",
+    "contactoTitulo": "Agenda tu visita",
+    "contactoTexto": "Escríbenos y un asesor de ALGI PROPERTY te responde, a cualquier hora.",
+    "correo": "Correo",
+    "web": "Web",
+    "qr": "Escanea para ver todas las fotos",
+    "aviso": "Precios y disponibilidad sujetos a cambios sin previo aviso. Ficha generada el {fecha}.",
+    "pagina": "Página {n} de {total}"
   },
   "contacto": {
     "titulo": "Hablemos",

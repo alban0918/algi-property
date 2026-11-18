@@ -15,6 +15,7 @@ Es un proyecto de portafolio personal. La empresa tuvo un sitio web anterior que
 - **7 secciones**: Inicio, Nosotros, Servicios, Inversiones, Florida, Propiedades y Contacto.
 - **Catálogo de 35 propiedades** (Cali, Cartagena, Lago Calima, Dapa, Yumbo, Jamundí, Palmira y Bogotá) con filtros por operación (venta, alquiler o propiedades de inversión con renta) y categoría (residencial o comercial). Al elegir una categoría se despliega un tercer filtro por tipo: casas, apartamentos, aparta estudios y fincas, o lotes, locales, bodegas, edificios, oficinas y hoteles. Las tarjetas se reordenan con animación y los filtros viven en la URL (`?operacion=inversion&categoria=comercial&tipo=local`), así se pueden compartir.
 - **Ficha por inmueble** con galería, vista ampliada accesible (teclado, Escape), datos clave y botón de WhatsApp con un mensaje ya redactado para esa propiedad.
+- **Ficha técnica en PDF** para descargar desde cada inmueble, en español e inglés: dos páginas A4 con el logo, la foto principal, el precio, los datos clave, las características, una galería y un código QR que lleva a la ficha en línea.
 - **Formulario de contacto** que valida los campos y abre WhatsApp o el correo con el mensaje listo. No tiene servidor ni guarda datos.
 - **SEO**: etiquetas `hreflang`, canónicas, Open Graph, `sitemap.xml`, `robots.txt` y datos estructurados de `RealEstateAgent`.
 - **Accesibilidad**: enlace para saltar al contenido, foco visible, navegación completa por teclado, contrastes WCAG AA y respeto de "reducir movimiento".
@@ -39,6 +40,7 @@ Es un proyecto de portafolio personal. La empresa tuvo un sitio web anterior que
 | Estilos | Tailwind CSS 4 con tokens de diseño propios |
 | Idiomas | next-intl (rutas `/es` y `/en`) |
 | Movimiento | Motion, Lenis (scroll suave) y animaciones CSS ligadas al scroll |
+| PDF | React-PDF, sharp (recorte de fotos) y qrcode |
 | Pruebas | Playwright y axe-core |
 | Tipografía | Cormorant Garamond y Montserrat, alojadas en el propio sitio con `next/font` |
 
@@ -46,7 +48,7 @@ Los datos de los inmuebles están en archivos locales (`src/data/`) y el conteni
 
 ## Cómo correrlo
 
-Requisitos: Node.js 20 o superior.
+Requisitos: Node.js 22.18 o superior.
 
 ```bash
 npm install
@@ -95,6 +97,7 @@ En escritorio el rendimiento fue de 98 a 100. `npm audit` no reporta vulnerabili
 - **404 reales**: con Cache Components, una ficha inexistente se transmitiría con estado 200. El `proxy` la reescribe hacia una ruta desconocida para que responda 404 con el diseño del sitio.
 - **Entrada al hacer scroll solo con CSS** (`animation-timeline: view()`): el contenido está en el HTML inicial y no depende de la hidratación de React, lo que mejoró el LCP.
 - **Formulario sin servidor**: arma el mensaje en el navegador y lo abre en WhatsApp o en el cliente de correo. Un siguiente paso natural sería enviarlo con un servicio como Resend.
+- **Fichas PDF generadas en el build**: `scripts/fichas-pdf.mjs` se ejecuta antes de cada `npm run build` y crea un PDF por inmueble e idioma en `public/fichas/`. Las propiedades nuevas tienen su ficha sin pasos manuales. Las fotos se eligen por resolución: cada una debe verse nítida en el espacio que ocupa; las de baja calidad o ilustrativas se descartan, y una foto concreta se puede excluir con `ficha: false`. Si el texto es largo, la galería pasa de 6 fotos a 3 para que la ficha quepa siempre en dos páginas.
 - **Fotos optimizadas**: las fichas originales pesaban 41 MB en PDF. `scripts/optimizar-fotos.py` extrae y convierte las fotos a WebP (1,9 MB en total).
 
 ## Estructura
@@ -102,7 +105,7 @@ En escritorio el rendimiento fue de 98 a 100. `npm audit` no reporta vulnerabili
 ```
 messages/          textos de la interfaz (es.json, en.json)
 public/images/     fotos de inmuebles y de ambientación
-scripts/           optimización de fotos
+scripts/           optimización de fotos y generación de fichas PDF
 src/app/           rutas, layout, sitemap, robots
 src/components/    componentes de interfaz
 src/content/       contenido de las páginas en ambos idiomas

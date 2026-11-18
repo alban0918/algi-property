@@ -54,3 +54,6 @@ next-env.d.ts
 # video de lanzamiento (se genera localmente)
 /brag-output/
 /brag-output-*/
+
+# fichas técnicas en PDF (se generan en cada build con npm run fichas)
+/public/fichas/

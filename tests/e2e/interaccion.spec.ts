@@ -148,6 +148,20 @@ test.describe("ficha de inmueble", () => {
     expect(href).toContain("https://wa.me/573160438862");
     expect(decodeURIComponent(href)).toContain("Casa Los Álamos");
   });
+
+  test("el botón de ficha técnica descarga el PDF del inmueble en su idioma", async ({ page }) => {
+    await page.goto("/es/propiedades/casa-los-alamos");
+    const enlace = page.getByRole("link", { name: "Descargar ficha técnica" });
+    await expect(enlace).toHaveAttribute("href", "/fichas/es/casa-los-alamos.pdf");
+    const [descarga] = await Promise.all([page.waitForEvent("download"), enlace.click()]);
+    expect(descarga.suggestedFilename()).toBe("Descargar ficha técnica - Casa Los Álamos - ALGI Property.pdf");
+
+    await page.goto("/en/propiedades/casa-los-alamos");
+    await expect(page.getByRole("link", { name: "Download fact sheet" })).toHaveAttribute(
+      "href",
+      "/fichas/en/casa-los-alamos.pdf",
+    );
+  });
 });
 
 test.describe("formulario de contacto", () => {

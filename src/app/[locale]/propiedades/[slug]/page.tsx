@@ -7,6 +7,7 @@ import { GaleriaFicha } from "@/components/galeria-ficha";
 import { Reveal } from "@/components/reveal";
 import { TarjetaPropiedad } from "@/components/tarjeta-propiedad";
 import { Contenedor, Lista } from "@/components/ui/bloques";
+import { IconoDescarga } from "@/components/ui/arrow";
 import { Button } from "@/components/ui/button";
 import { contacto, enlaceWhatsApp } from "@/data/contacto";
 import { obtenerPropiedad, propiedades } from "@/data/propiedades";
@@ -108,9 +109,22 @@ export default async function Ficha({ params }: PageProps<"/[locale]/propiedades
               ))}
             </dl>
             <div className="mt-8 flex flex-col items-start gap-5">
-              <Button href={enlaceWhatsApp(mensaje)} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
-                {t("consultar")}
-              </Button>
+              <div className="flex w-full flex-wrap gap-3">
+                <Button href={enlaceWhatsApp(mensaje)} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto lg:w-full">
+                  {t("consultar")}
+                </Button>
+                {/* PDF generado en cada build por scripts/fichas-pdf.mjs */}
+                <Button
+                  href={`/fichas/${locale}/${p.slug}.pdf`}
+                  download={`${t("descargar")} - ${p.nombre[locale]} - ALGI Property.pdf`}
+                  type="application/pdf"
+                  variante="contorno"
+                  className="w-full sm:w-auto lg:w-full"
+                >
+                  <IconoDescarga />
+                  {t("descargar")}
+                </Button>
+              </div>
               <a
                 href={`mailto:${contacto.correo}?subject=${encodeURIComponent(p.nombre[locale])}`}
                 className="text-sm text-taupe underline decoration-brass underline-offset-4 transition-colors hover:text-ink"

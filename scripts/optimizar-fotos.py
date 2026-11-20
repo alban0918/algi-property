@@ -245,6 +245,32 @@ FOTOS_NUEVAS3 = {
 }
 
 
+# Cambios 8: fotos extraídas del PDF de la Oficina Plaza Versalles y recortadas de la imagen de la Oficina Hotel Spirito.
+NUEVAS8 = "_fuente/fotos-cambios8"
+FOTOS_NUEVAS8 = {
+    "oficina-plaza-versalles": [
+        ("norte-p2-1-1600x1204.png", "01-balcon-vista"),
+        ("norte-p1-1-723x960.png", "02-edificio"),
+        ("norte-p1-2-480x362.png", "03-sala-reuniones"),
+        ("norte-p1-3-480x362.png", "04-oficina-balcon"),
+        ("norte-p1-4-482x640.png", "05-recepcion"),
+        ("norte-p2-2-482x640.png", "06-oficina-principal"),
+        ("norte-p2-3-450x800.png", "07-oficina-auxiliar"),
+        ("norte-p2-5-482x640.png", "08-oficina-archivo"),
+        ("norte-p2-6-482x640.png", "09-oficina"),
+        ("norte-p2-4-482x640.png", "10-pasillo"),
+        ("norte-p2-7-640x360.png", "11-parqueadero"),
+    ],
+    "oficina-hotel-spirito": [
+        ("spirito-b-interior.png", "01-oficina-interior"),
+        ("spirito-c-ventanal.png", "02-oficina-ventanal"),
+        ("spirito-a-acceso.png", "03-acceso-acristalado"),
+        ("spirito-d-terraza.png", "04-oficina-terraza"),
+        ("spirito-e-patio.png", "05-patio-hotel"),
+    ],
+}
+
+
 def procesar_nuevas(fotos_por_slug=FOTOS_NUEVAS, carpeta=NUEVAS) -> None:
     for slug, fotos in fotos_por_slug.items():
         destino = SALIDA / slug
@@ -279,3 +305,4 @@ if __name__ == "__main__":
     procesar_nuevas()
     procesar_nuevas(FOTOS_NUEVAS2, NUEVAS2)
     procesar_nuevas(FOTOS_NUEVAS3, NUEVAS3)
+    procesar_nuevas(FOTOS_NUEVAS8, NUEVAS8)

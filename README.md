@@ -13,7 +13,7 @@ Es un proyecto de portafolio personal. La empresa tuvo un sitio web anterior que
 - **Portada cinematográfica** a pantalla completa, con zoom lento de la foto, parallax al desplazar y titulares que suben desde una máscara.
 - **Español e inglés** con un botón ES / EN arriba a la derecha. Un clic cambia el idioma y conserva la página en la que estás. Si entras por `/`, el sitio detecta el idioma del navegador.
 - **7 secciones**: Inicio, Nosotros, Servicios, Inversiones, Florida, Propiedades y Contacto.
-- **Catálogo de 35 propiedades** (Cali, Cartagena, Lago Calima, Dapa, Yumbo, Jamundí, Palmira y Bogotá) con filtros por operación (venta, alquiler o propiedades de inversión con renta) y categoría (residencial o comercial). Al elegir una categoría se despliega un tercer filtro por tipo: casas, apartamentos, aparta estudios y fincas, o lotes, locales, bodegas, edificios, oficinas y hoteles. Las tarjetas se reordenan con animación y los filtros viven en la URL (`?operacion=inversion&categoria=comercial&tipo=local`), así se pueden compartir.
+- **Catálogo de 37 propiedades** (Cali, Cartagena, Lago Calima, Dapa, Yumbo, Jamundí, Palmira y Bogotá) con filtros por operación (venta, alquiler o propiedades de inversión con renta) y categoría (residencial o comercial). Al elegir una categoría se despliega un tercer filtro por tipo: casas, apartamentos, aparta estudios y fincas, o lotes, locales, bodegas, edificios, oficinas y hoteles. Las tarjetas se reordenan con animación y los filtros viven en la URL (`?operacion=inversion&categoria=comercial&tipo=local`), así se pueden compartir.
 - **Ficha por inmueble** con galería, vista ampliada accesible (teclado, Escape), datos clave y botón de WhatsApp con un mensaje ya redactado para esa propiedad.
 - **Ficha técnica en PDF** para descargar desde cada inmueble, en español e inglés: dos páginas A4 con el logo, la foto principal, el precio, los datos clave, las características, una galería y un código QR que lleva a la ficha en línea.
 - **Registro de interesados**: antes de descargar la ficha, la persona deja sus datos y autoriza el contacto. Se guardan en una base de datos y ALGI recibe un aviso por correo con un botón para responder por WhatsApp.
@@ -118,9 +118,9 @@ npm run build
 npm run test:e2e
 ```
 
-Son 290 pruebas:
+Son 302 pruebas:
 
-- Cada una de las 43 páginas en ambos idiomas responde 200, tiene un solo `h1`, no se desborda en 390 px y no tiene violaciones serias de accesibilidad (axe, WCAG 2.2 AA).
+- Cada una de las 45 páginas en ambos idiomas responde 200, tiene un solo `h1`, no se desborda en 390 px y no tiene violaciones serias de accesibilidad (axe, WCAG 2.2 AA).
 - Cambio de idioma, detección del idioma del navegador, filtros del catálogo (operación, categoría y tipo comercial), galería, formulario (validación y mensaje de WhatsApp) y menú móvil.
 - Registro de interesados: la ventana de descarga (validación, autorización sin marcar, descarga y datos recordados), las 70 fichas entregadas tras el formulario, enlaces alterados o vencidos rechazados, y los filtros contra robots.
 - 404 reales, sitemap y cabeceras de seguridad.

@@ -44,6 +44,8 @@ const rutas = [
   "/propiedades/finca-el-carmen",
   "/propiedades/finca-santa-elena",
   "/propiedades/casa-la-morada-vilas-verdes",
+  "/propiedades/oficina-hotel-spirito",
+  "/propiedades/oficina-plaza-versalles",
   "/contacto",
   "/privacidad",
 ];

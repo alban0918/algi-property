@@ -132,10 +132,12 @@ async function elegirFotos(p) {
   }
   const avisos = [];
 
-  // Portada: la foto principal del inmueble si da la talla; si no, la de mayor resolución.
+  // Portada: la foto principal del inmueble si da la talla; si no, la de mayor resolución,
+  // salvo que apenas mejore a la principal (entonces se queda la principal, que es la elegida para la web).
   const conDpi = validas.map((v) => ({ ...v, dpi: recorte(v.meta, HERO).dpi }));
   let hero = conDpi[0] && conDpi[0].dpi >= DPI_MIN_HERO * 1.25 ? conDpi[0] : undefined;
-  hero ??= [...conDpi].sort((a, b) => b.dpi - a.dpi)[0];
+  const mejor = [...conDpi].sort((a, b) => b.dpi - a.dpi)[0];
+  hero ??= mejor && mejor.dpi >= conDpi[0].dpi * 1.25 ? mejor : conDpi[0];
   if (!hero) throw new Error(`${p.slug}: no tiene ninguna foto utilizable para la ficha`);
   if (hero.dpi < DPI_MIN_HERO) avisos.push(`portada a ${Math.round(hero.dpi)} ppp`);
 

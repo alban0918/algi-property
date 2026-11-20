@@ -23,18 +23,18 @@ test.describe("selector de idioma", () => {
 test.describe("catálogo de propiedades", () => {
   test("filtra por operación, categoría y tipo comercial, y lo refleja en la URL", async ({ page }) => {
     await page.goto("/es/propiedades");
-    await expect(page.getByText("35 propiedades")).toBeVisible();
+    await expect(page.getByText("37 propiedades")).toBeVisible();
     // El filtro por tipo solo aparece al elegir una categoría.
     await expect(page.getByRole("button", { name: "Lotes", exact: true })).toHaveCount(0);
     await expect(page.getByRole("button", { name: "Casas", exact: true })).toHaveCount(0);
 
     await page.getByRole("button", { name: "Venta", exact: true }).click();
     await expect(page).toHaveURL(/operacion=venta/);
-    await expect(page.getByText("33 propiedades")).toBeVisible();
+    await expect(page.getByText("35 propiedades")).toBeVisible();
 
     await page.getByRole("button", { name: "Comercial", exact: true }).click();
     await expect(page).toHaveURL(/categoria=comercial/);
-    await expect(page.getByText("8 propiedades")).toBeVisible();
+    await expect(page.getByText("10 propiedades")).toBeVisible();
 
     await page.getByRole("button", { name: "Lotes", exact: true }).click();
     await expect(page).toHaveURL(/tipo=lote/);
@@ -45,7 +45,7 @@ test.describe("catálogo de propiedades", () => {
     await expect(page.getByText("No hay propiedades con esos filtros.")).toBeVisible();
 
     await page.getByRole("button", { name: "Quitar filtros" }).click();
-    await expect(page.getByText("35 propiedades")).toBeVisible();
+    await expect(page.getByText("37 propiedades")).toBeVisible();
     await expect(page).not.toHaveURL(/operacion=|categoria=|tipo=/);
   });
 
@@ -109,15 +109,17 @@ test.describe("catálogo de propiedades", () => {
 
   test("una URL con filtros muestra el resultado filtrado", async ({ page }) => {
     await page.goto("/en/propiedades?categoria=residential");
-    await expect(page.getByText("35 properties")).toBeVisible();
+    await expect(page.getByText("37 properties")).toBeVisible();
 
     await page.goto("/en/propiedades?categoria=residencial");
     await expect(page.getByText("25 properties")).toBeVisible();
     await expect(page.getByRole("heading", { name: "Los Álamos House" })).toBeVisible();
 
     await page.goto("/en/propiedades?categoria=comercial&tipo=oficina");
-    await expect(page.getByText("1 property")).toBeVisible();
+    await expect(page.getByText("3 properties")).toBeVisible();
     await expect(page.getByRole("heading", { name: "Warehouse and Offices in Bogotá" })).toBeVisible();
+    await expect(page.getByRole("heading", { name: "Hotel Spirito Office" })).toBeVisible();
+    await expect(page.getByRole("heading", { name: "Plaza Versalles Office, North Cali" })).toBeVisible();
 
     await page.goto("/en/propiedades?operacion=inversion");
     await expect(page.getByText("3 properties")).toBeVisible();

@@ -46,6 +46,8 @@ const rutas = [
   "/propiedades/casa-la-morada-vilas-verdes",
   "/propiedades/oficina-hotel-spirito",
   "/propiedades/oficina-plaza-versalles",
+  "/propiedades/casa-alfaguara",
+  "/propiedades/casa-baru-cartagena",
   "/contacto",
   "/privacidad",
 ];

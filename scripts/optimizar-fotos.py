@@ -271,6 +271,46 @@ FOTOS_NUEVAS8 = {
 }
 
 
+# Cambios 9: fotos extraídas de los PDF de la Casa Alfaguara y la Casa Barú (sin los logos de la marca).
+NUEVAS9 = "_fuente/fotos-cambios9"
+FOTOS_NUEVAS9 = {
+    "casa-alfaguara": [
+        ("alfaguara-p2-2-800x602.png", "01-piscina"),
+        ("alfaguara-p1-2-800x602.png", "02-fachada-noche"),
+        ("alfaguara-p1-4-480x362.png", "03-sala-cocina"),
+        ("alfaguara-p1-5-480x362.png", "04-sala"),
+        ("alfaguara-p3-6-640x482.png", "05-sala-estar"),
+        ("alfaguara-p3-1-640x482.png", "06-cocina"),
+        ("alfaguara-p1-6-480x362.png", "07-zona-bbq"),
+        ("alfaguara-p1-3-480x362.png", "08-bbq-barra"),
+        ("alfaguara-p3-2-640x482.png", "09-jardin"),
+        ("alfaguara-p3-3-640x482.png", "10-terraza-noche"),
+        ("alfaguara-p3-4-640x482.png", "11-corredor-jardin"),
+        ("alfaguara-p2-4-480x362.png", "12-suite-principal"),
+        ("alfaguara-p2-3-480x362.png", "13-bano-principal"),
+        ("alfaguara-p3-5-640x482.png", "14-habitacion"),
+        ("alfaguara-p2-5-480x362.png", "15-acceso"),
+        ("alfaguara-p2-6-480x362.png", "16-fachada-garaje"),
+    ],
+    "casa-baru-cartagena": [
+        ("baru-p1-6-960x540.png", "01-casa-terraza"),
+        ("baru-p2-6-960x540.png", "02-muelle-lancha"),
+        ("baru-p1-2-480x270.png", "03-sendero-jardin"),
+        ("baru-p2-2-480x270.png", "04-muelle-canal"),
+        ("baru-p1-7-480x270.png", "05-kiosco"),
+        ("baru-p2-4-480x270.png", "06-piscina"),
+        ("baru-p1-5-480x270.png", "07-comedor"),
+        ("baru-p1-8-480x270.png", "08-sala"),
+        ("baru-p2-7-480x270.png", "09-cocina"),
+        ("baru-p1-3-480x270.png", "10-habitacion-principal"),
+        ("baru-p1-4-480x270.png", "11-habitacion"),
+        ("baru-p2-5-384x288.png", "12-habitacion-tercera"),
+        ("baru-p2-3-480x270.png", "13-bano"),
+        ("baru-p2-8-480x270.png", "14-terraza"),
+    ],
+}
+
+
 def procesar_nuevas(fotos_por_slug=FOTOS_NUEVAS, carpeta=NUEVAS) -> None:
     for slug, fotos in fotos_por_slug.items():
         destino = SALIDA / slug
@@ -306,3 +346,4 @@ if __name__ == "__main__":
     procesar_nuevas(FOTOS_NUEVAS2, NUEVAS2)
     procesar_nuevas(FOTOS_NUEVAS3, NUEVAS3)
     procesar_nuevas(FOTOS_NUEVAS8, NUEVAS8)
+    procesar_nuevas(FOTOS_NUEVAS9, NUEVAS9)
